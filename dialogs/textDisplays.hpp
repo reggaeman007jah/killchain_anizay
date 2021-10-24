@@ -349,6 +349,48 @@ class RscTitles {
 		};
 	};
 
+	class GENERAL_MESSAGE_MM {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "GENERAL_MESSAGE_MM";
+		onLoad = "with uiNameSpace do { GENERAL_MESSAGE_MM = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999504;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.400 * safezoneW + safezoneX;
+				y = 0.600 * safezoneH + safezoneY;
+				w = 0.200 * safezoneW;
+				h = 0.10 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "CENTER";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.5";
+				}; 
+            };
+		};
+	};
+
 };
 
 
