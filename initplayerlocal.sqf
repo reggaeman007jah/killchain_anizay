@@ -1,4 +1,9 @@
 
+["media\video\ident.ogv"] spawn BIS_fnc_playVideo;
+sleep 11;
+[1, "BLACK", 5] spawn BIS_fnc_fadeEffect;
+// _video = ["media\video\ident.ogv"] call BIS_fnc_playVideo;
+
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 
 // remove shift map clicks 
@@ -47,12 +52,13 @@ _playerRole = roleDescription player;
 
 switch (_playerRole) do {
 	case "Viking 1:1 - Platoon Leader@Viking 1": {
+		// object addAction [title, script, arguments, priority, showWindow, hideOnUse, shortcut, condition, radius, unconscious, selection, memoryPoint]
 		player addAction ["Announce Rock Briefing", { 
-			if (KILLCHAINISLIVE) then {
-				["ROCK BRIEFING IN 1 MINUTE"] remoteExec ["RGGi_fnc_information_briefing", 0, true];	
-			};
-		}];
-		player addAction ["Page Viking 2", { 
+			// params ["_target", "_caller", "_actionId", "_arguments"];
+			["ROCK BRIEFING IN 1 MINUTE"] remoteExec ["RGGi_fnc_information_briefing", 0, true];	
+			player removeAction 20;
+		}, nil, 6, false, true];
+		player addAction ["Page Viking 2 SL", { 
 			{
 				_role = roleDescription _x;
 				if (_role == "Viking 2:1 - Squad Leader@Viking 2") then {
@@ -60,7 +66,7 @@ switch (_playerRole) do {
 				};
 			} forEach allPlayers;
 		}];
-		player addAction ["PAGE VIKING 3", { 
+		player addAction ["Page Viking 3 SL", { 
 			{
 				_role = roleDescription _x;
 				if (_role == "Viking 2:1 - Squad Leader@Viking 2") then {

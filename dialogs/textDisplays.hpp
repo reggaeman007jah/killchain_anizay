@@ -368,9 +368,9 @@ class RscTitles {
                 style = 0x00;
                 lineSpacing = 1;
 				x = 0.400 * safezoneW + safezoneX;
-				y = 0.600 * safezoneH + safezoneY;
+				y = 0.500 * safezoneH + safezoneY;
 				w = 0.200 * safezoneW;
-				h = 0.10 * safezoneH;
+				h = 0.100 * safezoneH;
                 size = 0.030;
                 colorBackground[] = {1,1,1,0.1};
                 colorText[] = {0,0,0,1};
@@ -385,7 +385,7 @@ class RscTitles {
 					shadow = false;
 					shadowColor = "#000000";
 					underline = false;
-					size = "1.5";
+					size = "2";
 				}; 
             };
 		};

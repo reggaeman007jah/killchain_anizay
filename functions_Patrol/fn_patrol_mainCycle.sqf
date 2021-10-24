@@ -260,6 +260,8 @@ for "_i" from 1 to 2 do {
 		for "_i" from 1 to 5 do {
 			_unit = [] call RGGg_fnc_get_randomOpforClassname; 
 			_unit1 = _opforGroup createUnit [_unit, _anchor1a, [], 0.1, "none"];
+			tinmanModule addCuratorEditableObjects [[_unit1], true];
+			bluforZeus addCuratorEditableObjects [[_unit1], true];
 			_opforTeam pushBack _unit1;
 		};
 
@@ -288,6 +290,8 @@ if (patrolPointsTaken > 2) then {
 			for "_i" from 1 to 2 do {
 				_unit = [] call RGGg_fnc_get_randomOpforClassname; 
 				_unit1 = _opforGroup createUnit [_unit, _qrfAnchor, [], 0.1, "none"];
+				tinmanModule addCuratorEditableObjects [[_unit1], true];
+				bluforZeus addCuratorEditableObjects [[_unit1], true];
 				_opforTeam pushBack _unit1;
 			};
 
@@ -560,6 +564,7 @@ end of spawn removal
 
 // NEW - adding checker for players 
 "You have two minutes to get 50m of the Patrol Point in order to hold progression..." remoteExec ["systemChat", 0, true];
+["REGROUP AT THE CP"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
 sleep 120;
 
 // PROXIMITY REGROUP SYSTEM 
@@ -588,7 +593,9 @@ while {_activateCheck} do {
 	if (_cnt == 0) then {
 		deleteMarker "REGROUP";
 		_activateCheck = false;
-		"progression / hold completed" remoteExec ["systemChat", 0, true];
+		// "progression / hold completed" remoteExec ["systemChat", 0, true];
+		["PATROL IS MOVING"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+		execVM "media\sounds\success.sqf";	
 		// format ["Debug - NOTE: _cnt == 0", _cnt] remoteExec ["systemChat", 0];
 	};
 };
@@ -616,35 +623,28 @@ switch (patrolPointsTaken) do {
 	};
 	case 3: {
 		_objPos = RGG_PatrolPoints select 3;
-		systemChat "RUNNING PHASE 4 - FINAL";	
+		systemChat "RUNNING PHASE 4";	
 	};
-	// case 4: {
-	// 	_objPos = RGG_PatrolPoints select 4;
-	// 	systemChat "RUNNING PHASE 5";	
-	// };
-	// case 5: {
-	// 	_objPos = RGG_PatrolPoints select 5;
-	// 	systemChat "RUNNING PHASE 6";	
-	// };
-	// case 6: {
-	// 	_objPos = RGG_PatrolPoints select 6;
-	// 	systemChat "RUNNING ENDGAME";	
-	// };
+	case 4: {
+		_objPos = RGG_PatrolPoints select 4;
+		systemChat "RUNNING PHASE 5";	
+	};
+	case 5: {
+		_objPos = RGG_PatrolPoints select 5;
+		systemChat "RUNNING PHASE 6";	
+	};
+	case 6: {
+		_objPos = RGG_PatrolPoints select 6;
+		systemChat "RUNNING ENDGAME";	
+	};
 	default {
 		systemChat "error: Patrol Point switch";
 	};
 };
 
-// pause to regroup - is this needed??
-// systemChat "debug - get Ready - 60 seconds";
-// sleep 60;
-// systemChat "debug - here we go";
-
-
 // blanket move order here 
 _units = allUnits inAreaArray "redzone";
 _indi = [];
-
 {
 	if ((side _x) == INDEPENDENT) then {_indi pushBack _x}
 } forEach _units;
@@ -685,7 +685,6 @@ allunits select {side _x == resistance && vehicle _x isKindOf "StaticWeapon" }
 
 // catchall opfor move at end of cycle - might lead to pincer attacks unexpectedly ;)
 _opfor = [];
-
 {
 	if ((side _x) == EAST) then {_opfor pushBack _x};
 } forEach allUnits;
@@ -705,7 +704,7 @@ systemChat "RUNNING CLEANUP - check works from Cycle Script ";
 
 // determine whether another camp obj or final obj 
 // if (patrolPointsTaken <= 5) then {
-if (patrolPointsTaken <= 4) then {
+if (patrolPointsTaken <= 6) then {
 	[_anchor, _objPos] spawn RGGp_fnc_patrol_mainCycle;
 } else {
 	[_anchor, _objPos] execVM "killChain\mission\patrolFinal.sqf";	

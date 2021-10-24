@@ -138,6 +138,20 @@ while {_altCheck} do {
 					// sleep 5;
 					systemChat "deleting marker";
 					deleteMarker _markerName;
+
+					// here we should check what the cargo status is using a number of different checks 
+					_crewCount = ["B_Heli_Light_01_F", false] call BIS_fnc_crewCount; // only crew 
+					_crewCount2 = ["B_Heli_Transport_01_F", true] call BIS_fnc_crewCount; // Counts all available seats including cargo slots. 
+					_freeCargoPositions = _heli emptyPositions "cargo";
+					// this should only return the pilot and/or co-pilot 
+					hint format ["DEBUG CHECK DEPLOY - _crewCount: %1 / _crewCount2: %2 / _freeCargoPositions: %3", _crewCount, _crewCount2, _freeCargoPositions];
+					sleep 3;
+					{
+						_vehicle = assignedVehicle _x;
+						systemChat format ["Unassigning vehicle %1 from player %2", _vehicle, _x];
+					} forEach allPlayers;
+
+
 				};
 			};
 		};

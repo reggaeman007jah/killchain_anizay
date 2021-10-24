@@ -30,6 +30,7 @@ _pilot = _passed select 0;
 _heli = vehicle _pilot;
 
 _freeCargoPositions = _heli emptyPositions "cargo";
+hint format ["Free Cargo Positions: %1", _freeCargoPositions];
 
 [_freeCargoPositions, _heli] execVM "killchain\systems\boardingSystems\boardUnits.sqf"; 
 CANBOARD = false;

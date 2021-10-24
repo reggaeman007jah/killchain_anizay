@@ -5,6 +5,10 @@ class RGGi {
 	class functions_information {
 		file = "functions_Information";
 
+		class information_briefing {
+			Description = "This function will filter players, sending messages only to leadership";
+		};
+
 		class information_leadershipGroup {
 			Description = "This function will filter players, sending messages only to leadership";
 		};
