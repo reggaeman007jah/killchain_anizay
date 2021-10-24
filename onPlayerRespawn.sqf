@@ -4,9 +4,9 @@ params ["_newUnit", "_oldUnit", "_respawn", "_respawnDelay"];
 [player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
 
 // --- manage pickup messages --- //
-_respawningDesc = roleDescription _newUnit;
+_respawningDesc = roleDescription _newUnit; // gets role of new unit 
 
-// determine if any raptors in game 
+// first, determine if any raptors in game 
 _raptors = false;
 {
 	_playerRole = roleDescription _x;
@@ -18,7 +18,7 @@ _raptors = false;
 
 // ignore any raptors and only send message to non-raptors, and then send a message dependent on whether there are actually raptors in-game 
 if ((_respawningDesc == "Raptor 1 - Squadron Leader@Raptor") or (_respawningDesc == "Raptor 2 - Squadron 2IC@Raptor")) then {
-	systemChat "placeholder for Raptor killed message";
+	systemChat "placeholder for Raptor killed message - maybe Padre?";
 } else {
 	{
 		_playerRole = roleDescription _x;
