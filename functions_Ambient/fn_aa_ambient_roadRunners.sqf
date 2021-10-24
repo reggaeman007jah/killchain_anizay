@@ -1,0 +1,13 @@
+/*
+This function will make civs run across the road from one house into another 
+
+choose a player 
+
+get direction of travel 
+
+find suitable pair of buildings 
+
+wait until player is near 
+
+
+*/
