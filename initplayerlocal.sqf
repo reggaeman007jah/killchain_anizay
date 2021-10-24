@@ -48,8 +48,27 @@ _playerRole = roleDescription player;
 switch (_playerRole) do {
 	case "Viking 1:1 - Platoon Leader@Viking 1": {
 		player addAction ["Announce Rock Briefing", { 
-			["ROCK BRIEFING IN 1 MINUTE"] remoteExec ["RGGi_fnc_information_briefing", 0, true];
+			if (KILLCHAINISLIVE) then {
+				["ROCK BRIEFING IN 1 MINUTE"] remoteExec ["RGGi_fnc_information_briefing", 0, true];	
+			};
 		}];
+		player addAction ["Page Viking 2", { 
+			{
+				_role = roleDescription _x;
+				if (_role == "Viking 2:1 - Squad Leader@Viking 2") then {
+					["CONTACT PLATOON LEADER"] remoteExec ["RGGi_fnc_information_lowerRight", _x, true];
+				};
+			} forEach allPlayers;
+		}];
+		player addAction ["PAGE VIKING 3", { 
+			{
+				_role = roleDescription _x;
+				if (_role == "Viking 2:1 - Squad Leader@Viking 2") then {
+					["CONTACT PLATOON LEADER"] remoteExec ["RGGi_fnc_information_lowerRight", _x, true];
+				};
+			} forEach allPlayers;
+		}];
+
 		// [_interfaceSize] spawn RGGr_fnc_roles_platoonLead;
 		// ["PATROL IS NOW LIVE"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
 	};
