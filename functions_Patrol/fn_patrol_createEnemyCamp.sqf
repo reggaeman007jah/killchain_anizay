@@ -1,6 +1,8 @@
 // --- create enemy camp items --- //
 
 /*
+Called from mainCycle 
+
 CargoNet_01_barrels_F
 CargoNet_01_box_F
 I_CargoNet_01_ammo_F

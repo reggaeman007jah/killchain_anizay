@@ -116,6 +116,9 @@ publicVariable "RGG_checkDestroyBlufor";
 RGG_civviesSaved = 0;
 publicVariable "RGG_civviesSaved";
 
+RGG_civviesKilled = 0;
+publicVariable "RGG_civviesKilled";
+
 RGG_availableIndifor = 30;
 publicVariable "RGG_availableIndifor";
 
