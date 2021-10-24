@@ -3,6 +3,7 @@ ensures only leaders get this message
 */
 
 // 22 Oct idea - use ranks to send messages when someone is in charge - they may not know it as leader is dead 
+// so, FNC to get ranking officer for each squad maybe?
 
 _messageText = _this select 0;
 _messageVar = _this select 1;
@@ -27,8 +28,5 @@ _group = [];
 } forEach allPlayers;
 
 {
-	// [_messageText, _messageVar] call RGGi_fnc_information_lowerLeft;
 	[_messageText, _messageVar] remoteExec ["RGGi_fnc_information_lowerLeft", _x]; 
 } forEach _group;
-
-// test
