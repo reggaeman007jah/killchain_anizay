@@ -1,7 +1,23 @@
 _dataStore = [];
+// {
+// 	if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
+// } forEach allPlayers;
+// ^^ here we are phasing out the indifor tinman solution for a blufor PL-based solution 
+
 {
-	if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
+	_playerRole = roleDescription _x;
+	if (_playerRole == "Viking 1:1 - Platoon Leader@Viking 1") then { _dataStore pushback _x }
 } forEach allPlayers;
+
+// {
+// 	_playerRole = roleDescription _x;
+
+// 	if ( (_playerRole == "Raptor 1 - Squadron Leader@Raptor") or (_playerRole == "Raptor 2 - Squadron 2IC@Raptor") ) then {
+// 		_raptors = true;
+// 	};
+// } forEach allPlayers;
+// used for debugging - can delete if no issues 
+
 
 _player = _dataStore select 0;
 

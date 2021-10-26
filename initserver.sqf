@@ -21,6 +21,9 @@ customFlag2 setObjectTexture [0,"media\images\flag1.jpg"];
 // vnMapX setObjectTexture [0,"media\images\vnMap3.jpg"];
 // vnMapX setObjectTexture [0,"media\images\reloadImage2.jpg"];
 
+// this toggles PL Blufor Tinman Command 
+BLUMAN = false; // default is off/false 
+publicVariable "BLUMAN";
 
 // blufor marker system 
 // execVM "killchain\systems\markerSystems\bluforMarkers.sqf"; // will run even if Killchain does not run 

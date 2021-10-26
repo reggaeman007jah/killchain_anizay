@@ -31,7 +31,7 @@ if (_playerFaction == "I_ARVN") then {
 	execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
 };
 
-systemChat "DEBUG / EH - Init Player Local Heal EH Running";
+// systemChat "DEBUG / EH - Init Player Local Heal EH Running"; // what is this????
 
 
 // player addEventHandler ["HandleHeal", {
@@ -82,6 +82,14 @@ switch (_playerRole) do {
 			} forEach allPlayers;
 			[_vics, player] remoteExec ["RGGu_fnc_utilities_checkAssigned", player];
 		}];
+		player addAction ["TINMAN - On", { 
+			BLUMAN = true;
+			publicVariable "BLUMAN";
+		}];
+		player addAction ["TINMAN - Off", { 
+			BLUMAN = false;
+			publicVariable "BLUMAN";
+		}];
 		// player addAction ["START MISSION", { 
 		// 	_vics = [];
 		// 	{
@@ -92,6 +100,9 @@ switch (_playerRole) do {
 		// }];
 		// [_interfaceSize] spawn RGGr_fnc_roles_platoonLead;
 		// ["PATROL IS NOW LIVE"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+		vamp = false;
+		systemChat "you have use of voice activated systems";
+		execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
 	};
 	// case "Viking 1:2 - Platoon 2IC / Padre@Viking 1": 	{ [_interfaceSize] spawn RGGr_fnc_roles_2IC; };
 	// case "Viking 1:3 - Platoon Sniper@Viking 1": 		{ [_interfaceSize] spawn RGGr_fnc_roles_sniper; };

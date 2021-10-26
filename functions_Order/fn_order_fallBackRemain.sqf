@@ -22,11 +22,16 @@ while {FALLBACKREMAIN} do {
 	} forEach _units;
 
 	// get indi player
+	// _dataStore = [];
+	// {
+	// 	if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
+	// } forEach allPlayers;
+	// note - do we really need to check for this every cycle?
 	_dataStore = [];
 	{
-		if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
+		_playerRole = roleDescription _x;
+		if (_playerRole == "Viking 1:1 - Platoon Leader@Viking 1") then { _dataStore pushback _x }
 	} forEach allPlayers;
-	// note - do we really need to check for this every cycle?
 
 	// build in a count - if zero then what do?
 	_cnt = count _dataStore;

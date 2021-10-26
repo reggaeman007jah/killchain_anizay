@@ -1,7 +1,7 @@
 // one off order - move to player location 
 
 // systemChat "debug - running fallback.sqf";
-"ARVN Units are falling back to Tinman" remoteExec ["systemChat", -2, true];
+// "ARVN Units are falling back to Tinman" remoteExec ["systemChat", -2, true];
 // {playSound "fallback"} remoteExec ["call",-2];
 
 FALLBACKREMAIN = false; // in case was running 
@@ -16,9 +16,16 @@ _indi = [];
 // systemChat format ["_indi: %1", _indi];
 
 // get indi player
+// _dataStore = [];
+// {
+// 	if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
+// } forEach allPlayers;
+
+// get PL 
 _dataStore = [];
 {
-	if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
+	_playerRole = roleDescription _x;
+	if (_playerRole == "Viking 1:1 - Platoon Leader@Viking 1") then { _dataStore pushback _x }
 } forEach allPlayers;
 
 _commander = _dataStore select 0;

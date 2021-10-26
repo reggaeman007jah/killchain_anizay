@@ -163,7 +163,9 @@ while {RFCHECK} do {
 	} else {
 		// insurance move order while in attack mode 
 		systemChat "LOGIC - initiate indifor insurance move order";
-		[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
+		if (!BLUMAN) then {
+			[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
+		};
 	};
 	sleep 120;
 };
@@ -421,7 +423,9 @@ while {RFCHECK2} do {
 
 	// --- insurance move order while in attack mode --- //
 	systemChat "LOGIC - initiate indifor insurance move order";
-	[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
+	if (!BLUMAN) then {
+		[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
+	};
 	systemChat "LOGIC - initiate opfor insurance move order";
 	[_objPos] spawn RGGo_fnc_order_insuranceMoveOpfor;
 	sleep 60;
