@@ -8,7 +8,9 @@ class RGGu {
 		class utilities_checkAssigned {
 			Description = "This function will check which vics each player is assigned to";
 		};
-
+		class utilities_unassign {
+			Description = "This function will unassign given player from latest vic";
+		};
 		// class spawn_baseSpawnContainerLevel2 {
 		// 	Description = "This function will create the correct container (or truck) to generate the next base - all level 1 basses must be built and be healthy first";
 		// };
