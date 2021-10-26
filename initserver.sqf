@@ -49,6 +49,7 @@ execVM "eventHandlers\getInMonitor.sqf";
 execVM "eventHandlers\engineOff.sqf";
 execVM "eventHandlers\heal.sqf";
 execVM "eventHandlers\getOut.sqf";
+execVM "eventHandlers\unassign.sqf";
 
 // enables HK Team as default 
 HUNTERKILLER = true;

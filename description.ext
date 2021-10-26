@@ -18,10 +18,11 @@ class CfgFunctions {
 	#include "functions_Missions\functions_Missions.hpp"
 	#include "functions_Order\functions_Order.hpp"
 	#include "functions_Patrol\functions_Patrol.hpp"
-	// #include "functions_Recruiting\functions_Recruiting.hpp"
+	// #include "functions_Recruiting\functions_Recruiting.hpp" - decide what to do with these old ones!
 	#include "functions_Roles\functions_Roles.hpp"
 	#include "functions_Spawn\functions_Spawn.hpp"
 	#include "functions_Test\functions_Test.hpp"
+	#include "functions_Utilities\functions_Utilities.hpp"
 	#include "functions_Vehicles\functions_Vehicles.hpp"
 };
 #include "AIS\Effects\BarDlg.hpp"

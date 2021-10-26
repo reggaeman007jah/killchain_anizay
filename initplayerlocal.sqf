@@ -55,14 +55,14 @@ switch (_playerRole) do {
 		// object addAction [title, script, arguments, priority, showWindow, hideOnUse, shortcut, condition, radius, unconscious, selection, memoryPoint]
 		player addAction ["Announce Rock Briefing", { 
 			// params ["_target", "_caller", "_actionId", "_arguments"];
-			["ROCK BRIEFING IN 1 MINUTE"] remoteExec ["RGGi_fnc_information_briefing", 0, true];	
+			["ROCK BRIEFING IN 1 MINUTE"] remoteExec ["RGGi_fnc_information_briefing", 0];	
 			player removeAction 20;
 		}, nil, 6, false, true];
 		player addAction ["Page Viking 2 SL", { 
 			{
 				_role = roleDescription _x;
 				if (_role == "Viking 2:1 - Squad Leader@Viking 2") then {
-					["CONTACT PLATOON LEADER"] remoteExec ["RGGi_fnc_information_lowerRight", _x, true];
+					["CONTACT PLATOON LEADER"] remoteExec ["RGGi_fnc_information_lowerRight", _x];
 				};
 			} forEach allPlayers;
 		}];
@@ -70,11 +70,26 @@ switch (_playerRole) do {
 			{
 				_role = roleDescription _x;
 				if (_role == "Viking 2:1 - Squad Leader@Viking 2") then {
-					["CONTACT PLATOON LEADER"] remoteExec ["RGGi_fnc_information_lowerRight", _x, true];
+					["CONTACT PLATOON LEADER"] remoteExec ["RGGi_fnc_information_lowerRight", _x];
 				};
 			} forEach allPlayers;
 		}];
-
+		player addAction ["Check assigned player vics", { 
+			_vics = [];
+			{
+				_assignedVic = assignedVehicle _x;
+				_vics pushBack _assignedVic;
+			} forEach allPlayers;
+			[_vics, player] remoteExec ["RGGu_fnc_utilities_checkAssigned", player];
+		}];
+		// player addAction ["START MISSION", { 
+		// 	_vics = [];
+		// 	{
+		// 		_assignedVic = assignedVehicle _x;
+		// 		_vics pushBack _assignedVic;
+		// 	} forEach allPlayers;
+		// 	[_vics, player] remoteExec ["RGGu_fnc_utilities_checkAssigned", player];
+		// }];
 		// [_interfaceSize] spawn RGGr_fnc_roles_platoonLead;
 		// ["PATROL IS NOW LIVE"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
 	};
