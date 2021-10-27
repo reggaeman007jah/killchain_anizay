@@ -23,7 +23,8 @@ class CfgFunctions {
 	#include "functions_Spawn\functions_Spawn.hpp"
 	#include "functions_Test\functions_Test.hpp"
 	#include "functions_Utilities\functions_Utilities.hpp"
-	#include "functions_Vehicles\functions_Vehicles.hpp"
+	// #include "functions_Vehicles\functions_Vehicles.hpp" - decide what to do with these old ones!
+	#include "functions_Voice\functions_Voice.hpp"
 };
 #include "AIS\Effects\BarDlg.hpp"
 //--------------------------------------------------------------

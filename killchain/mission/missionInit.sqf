@@ -37,7 +37,7 @@ if (_cnt == 1) then {
 	RGG_IndiPlayerSystem = true;
 } else {
 	systemChat "STANDARD AI COMMAND SYSTEM ACTIVATED";
-	RGG_IndiPlayerSystem = true;
+	RGG_BluforPlayerSystem = true;
 };
 // if there is an indifor player on mission start, then RGG_IndiPlayerSystem is true, and can be used if needed in future 
 

@@ -27,8 +27,9 @@ private _playerFaction = faction player;
 
 if (_playerFaction == "I_ARVN") then {
 	vamp = false;
-	systemChat "you have use of voice activated systems";
-	execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
+	systemChat "you have use of FNC-based voice activated systems";
+	// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
+	[] spawn RGGv_fnc_voice_VAHCO_init;
 };
 
 // systemChat "DEBUG / EH - Init Player Local Heal EH Running"; // what is this????
@@ -110,8 +111,9 @@ switch (_playerRole) do {
 		// [_interfaceSize] spawn RGGr_fnc_roles_platoonLead;
 		// ["PATROL IS NOW LIVE"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
 		vamp = false;
-		systemChat "you have use of voice activated systems";
-		execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
+		systemChat "you have use of FNC-based voice activated systems";
+		// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
+		[] spawn RGGv_fnc_voice_VAHCO_init;
 	};
 	// case "Viking 1:2 - Platoon 2IC / Padre@Viking 1": 	{ [_interfaceSize] spawn RGGr_fnc_roles_2IC; };
 	// case "Viking 1:3 - Platoon Sniper@Viking 1": 		{ [_interfaceSize] spawn RGGr_fnc_roles_sniper; };
