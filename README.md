@@ -18,10 +18,6 @@ https://discord.gg/wpJfHRVAh4
 Game Server Modpack
 https://steamcommunity.com/sharedfiles/filedetails/?id=1426383126
 
-Teamspeak
-Server: 144.76.113.253 port:9017
-Password: Mercenary1
-
 TFAR Frequencies and Callsigns
 Ground Forces / Callsign Viking / sw C1 frq50
 Air Support / Callsign Raptor / sw C1 frq51
