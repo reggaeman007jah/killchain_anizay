@@ -74,13 +74,22 @@ switch (_playerRole) do {
 				};
 			} forEach allPlayers;
 		}];
-		player addAction ["Check assigned player vics", { 
-			_vics = [];
+		player addAction ["DEBUG - Check assigned player vics", { 
+			// _vics = [];
 			{
 				_assignedVic = assignedVehicle _x;
-				_vics pushBack _assignedVic;
+				// _vics pushBack _assignedVic;
+				format ["%1 is assigned to %2", _x, _assignedVic] remoteExec ["systemChat", 0]; 
 			} forEach allPlayers;
-			[_vics, player] remoteExec ["RGGu_fnc_utilities_checkAssigned", player];
+			// [_vics, player] remoteExec ["RGGu_fnc_utilities_checkAssigned", player];
+		}];
+		player addAction ["DEBUG - manually unassign all players", { 
+			// _vics = [];
+			{
+				_x assignAsCargo Workaround;
+				// unassignVehicle _x;
+			} forEach allPlayers;
+			// [_vics, player] remoteExec ["RGGu_fnc_utilities_checkAssigned", player];
 		}];
 		player addAction ["TINMAN - On", { 
 			BLUMAN = true;

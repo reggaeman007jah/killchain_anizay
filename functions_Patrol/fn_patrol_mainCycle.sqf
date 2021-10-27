@@ -161,9 +161,9 @@ while {RFCHECK} do {
 		} forEach _unitsCore;
 		RFCHECK = false;
 	} else {
-		// insurance move order while in attack mode 
-		systemChat "LOGIC - initiate indifor insurance move order";
+		
 		if (!BLUMAN) then {
+			systemChat "LOGIC - initiate indifor insurance move order";
 			[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
 		};
 	};
