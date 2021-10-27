@@ -37,7 +37,8 @@ if (RGG_IndiPlayerSystem) then {
 } else {
 	// standard killchain 
 	// init Point 1 Obj  
-	[_objPos] execVM "killChain\mission\patrolCycleHoldCheckBasic.sqf";
+	// [_objPos] execVM "killChain\mission\patrolCycleHoldCheckBasic.sqf";
+	[_objPos] spawn RGGp_fnc_patrol_initialProxCheck; // 27 Oct - check this works if so delete above 
 	
 	// sleep 2;
 	// create initial batch of indifor and send out on patrol 
@@ -45,12 +46,12 @@ if (RGG_IndiPlayerSystem) then {
 };
 
 
-// --- one-off init / generate investigation side mission --- // 
+// --- init first investigation side mission --- // 
 _targetArea = _objPos getPos [1200, (random 359)]; // the general area 
 _building1 = [_targetArea] call RGGg_fnc_get_randomHouse; // building 1
 _building1Pos = getPos _building1;
-systemChat format ["DEBUG / MAIN CYCLE - returned building 1 is: %1", _building1];
-systemChat format ["DEBUG / MAIN CYCLE - returned building 1 pos is: %1", _building1Pos];
+// systemChat format ["DEBUG / MAIN CYCLE - returned building 1 is: %1", _building1];
+// systemChat format ["DEBUG / MAIN CYCLE - returned building 1 pos is: %1", _building1Pos];
 sleep 3;
 
 // test 

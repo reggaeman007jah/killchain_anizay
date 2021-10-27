@@ -23,6 +23,7 @@ waitUntil { (KILLCHAINMISSIONSTART == true) };
 
 // declare Player Command bool 
 RGG_IndiPlayerSystem = false;
+RGG_BluforPlayerSystem = false;
 
 // check here - is there indiFor player slot taken when mission has started?
 _dataStore = [];
@@ -36,6 +37,7 @@ if (_cnt == 1) then {
 	RGG_IndiPlayerSystem = true;
 } else {
 	systemChat "STANDARD AI COMMAND SYSTEM ACTIVATED";
+	RGG_IndiPlayerSystem = true;
 };
 // if there is an indifor player on mission start, then RGG_IndiPlayerSystem is true, and can be used if needed in future 
 
@@ -102,7 +104,8 @@ for [{private _i = 1}, {_i < 7}, {_i = _i + 1}] do {
 RGG_PatrolPoints pushBack (getMarkerPos "killchainFinal");
 
 // reinstated to test further - later march 2021
-execVM "killchain\systems\markerSystems\indiforMarkers.sqf";
+// execVM "killchain\systems\markerSystems\indiforMarkers.sqf"; // 27 Oct - remove this line and execVM script if markers still work ok 
+[] spawn RGGi_fnc_information_mapMarkers;
 
 // [900] execVM "killChain\systems\hunterKillerSystemsOpfor\runHK.sqf"; // 15 minute arg delay 
 [900] spawn RGGs_fnc_spawn_opforHK;
@@ -112,7 +115,7 @@ execVM "killchain\systems\markerSystems\indiforMarkers.sqf";
 
 // commence mission 
 execVM "killchain\mission\missionStart.sqf";
-systemChat "RUNNING PHASE 1";
+// systemChat "RUNNING PHASE 1";
 ["PATROL IS NOW LIVE"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
 
 

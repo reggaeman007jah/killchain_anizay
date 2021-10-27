@@ -8,7 +8,9 @@ class RGGp {
 		class patrol_createEnemyCamp {
 			Description = "This function will create enemy camp items";
 		};
-
+		class patrol_initialProxCheck {
+			Description = "This monitors player approach to starting point of mission";
+		};
 		class patrol_mainCycle {
 			Description = "This function will run the main patrol cycle";
 		};

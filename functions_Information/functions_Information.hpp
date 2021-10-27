@@ -21,6 +21,9 @@ class RGGi {
 			Description = "This function will render message in lower left of screen";
 		};
 
+		class information_mapMarkers {
+			Description = "This function will render map markers";
+		};
 
 
 		// class get_allPlayersOnGround {
