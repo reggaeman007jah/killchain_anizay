@@ -1,5 +1,27 @@
 // // one off order - move to player location 
 
+"INDI Groups are moving to Platoon Leader position" remoteExec ["systemChat", -2];
+// {playSound "attack"} remoteExec ["call",-2];
+// {playSound "commandOut"} remoteExec ["call",0];
+// systemChat "played sound";
+
+FALLBACKREMAIN = false; // in case was running 
+
+// get PL position 
+_commPos = [] call RGGg_fnc_get_tinmanPos;
+
+// get indi groups / order move 
+_selection = allGroups select {side _x isEqualTo independent};
+{
+	// loose circle but this time all around player, not in front 
+	_randomDir = random 359;
+	_randomDist = selectRandom [5, 10, 15, 25];
+	_endPoint1 = _commPos getPos [_randomDist,_randomDir];
+	_x move _commPos;
+	systemChat format ["DEBUG - MOVE ORDER / Group %1 moving to %2", _x, _commPos];
+} forEach _selection;
+
+
 // // systemChat "debug - running fallback.sqf";
 // // "ARVN Units are falling back to Tinman" remoteExec ["systemChat", -2, true];
 // // {playSound "fallback"} remoteExec ["call",-2];
@@ -52,26 +74,7 @@
 // new  
 // one off move order - move to player location  
 
-"INDI Groups are moving to Platoon Leader position" remoteExec ["systemChat", -2];
-// {playSound "attack"} remoteExec ["call",-2];
-// {playSound "commandOut"} remoteExec ["call",0];
-// systemChat "played sound";
 
-FALLBACKREMAIN = false; // in case was running 
-
-// get PL position 
-_commPos = [] call RGGg_fnc_get_tinmanPos;
-
-// get indi groups / order move 
-_selection = allGroups select {side _x isEqualTo independent};
-{
-	// loose circle but this time all around player, not in front 
-	_randomDir = random 359;
-	_randomDist = selectRandom [5, 10, 15, 25];
-	_endPoint1 = _commPos getPos [_randomDist,_randomDir];
-	_x move _commPos;
-	systemChat format ["DEBUG - MOVE ORDER / Group %1 moving to %2", _x, _commPos];
-} forEach _selection;
 
 
 

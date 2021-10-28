@@ -134,7 +134,7 @@ while {RFCHECK} do {
 	systemChat format ["CORE OPFR:    %1", _coreOpfor];
 
 	// format ["Indi Units in AO: %1", _redzoneIndi] remoteExec ["systemChat", 0];
-	["Indi Units in AO: %1", _redzoneIndi] call RGGi_fnc_information_leadershipGroup;
+	// ["Indi Units in AO: %1", _redzoneIndi] call RGGi_fnc_information_leadershipGroup;
 
 
 	// format ["Indi Units at Pathfinder: %1", RGG_availableIndifor] remoteExec ["systemChat", 0];

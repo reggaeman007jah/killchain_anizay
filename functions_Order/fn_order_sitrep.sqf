@@ -1,6 +1,4 @@
-// one off order infor on numbers in AO - mayby other stuff later 
 
-// FALLBACKREMAIN = false; // in case was running 
 
 // get overall numbers of troops in redzone 
 _unitsRedzone = allUnits inAreaArray "redzone";
@@ -16,9 +14,11 @@ _redzoneIndi = 0;
 
 if (_redzoneIndi > 0) then {
 	format ["Pesh Units in AO: %1", _redzoneIndi] remoteExec ["systemChat", -2];
-	"Bravo 3 out" remoteExec ["systemChat", 0, true];
+	["Indi Units in AO: %1", _redzoneIndi] call RGGi_fnc_information_leadershipGroup;
+	// "Bravo 3 out" remoteExec ["systemChat", 0, true];
 } else {
-	"No Response from Pesh" remoteExec ["systemChat", -2, true];
+	"No Indifor in AO!" remoteExec ["systemChat", -2, true];
+	["No Indifor in AO!"] call RGGi_fnc_information_leadershipGroup;
 };
 
 // use -2 here?
@@ -26,7 +26,6 @@ if (_redzoneIndi > 0) then {
 _allGrps = allGroups select { side _x isEqualTo independent };
 _commPos = [] call RGGg_fnc_get_tinmanPos;
 _objPos = getMarkerPos 'REDZONE';
-
 
 _data = [];
 {
