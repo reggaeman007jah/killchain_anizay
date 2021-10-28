@@ -41,6 +41,12 @@ _civGroup = createGroup civilian;
 {
 	_class = selectRandom _classes;
 	_unit = _civGroup createUnit [_class, _x, [], 0.1, "none"]; 
+	_unit addMPEventHandler ["MPKilled", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		if (isPlayer _killer) then {
+			systemChat "YOU SLOTTED A GOOD GUY";
+		};
+	}];
 	// _unit removeItem "Item_Medikit";
 	// _unit removeItem "Item_Medikit";
 	// _unit removeItem "Item_Medikit";

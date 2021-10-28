@@ -138,6 +138,12 @@ _markersToDelete = []; // used to manage cleanup of markers after extract
 		_civGroup = createGroup [civilian, true]; 
 		_class = selectRandom _classes;
 		_unit = _civGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
+		_unit addMPEventHandler ["MPKilled", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			if (isPlayer _killer) then {
+				systemChat "YOU SLOTTED A GOOD GUY";
+			};
+		}];
 
 		// tinmanModule addCuratorEditableObjects [[_unit], true];
 		bluforZeus addCuratorEditableObjects [[_unit], true];
