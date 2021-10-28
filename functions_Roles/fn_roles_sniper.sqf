@@ -1,4 +1,12 @@
-_interfaceSize = _this select 0;
+_youAre = _this select 0;
+_interfaceSize = _this select 1;
+
+_squad = "";
+if (_youAre == "You are Viking 2:8 / Viking 2 Sniper") then {
+	_squad = "2";
+} else {
+	_squad = "3";
+};
 
 _fontSize = 2; // default for very small 
 
@@ -10,6 +18,7 @@ switch (_interfaceSize) do {
 	case 1: 	{ _fontSize = 0.3 }; // a guess
 	default 	{ _fontSize = 2 };
 };
+
 disableSerialization;
 600 cutRsc ["WELCOME_TEXT", "PLAIN"];
 waitUntil {!isNull (uiNameSpace getVariable "WELCOME_TEXT")};
@@ -17,16 +26,15 @@ waitUntil {!isNull (uiNameSpace getVariable "WELCOME_TEXT")};
 _displayOBJUNITS = uiNameSpace getVariable "WELCOME_TEXT";
 _setText = _displayOBJUNITS displayCtrl 999500;
 _setText ctrlSetStructuredText (parseText format ["
-<t size='%1'>
-	Welcome to Operation Killchain<br /><br /><br />
-	You are the Viking Platoon Sniper, your designation is Viking 1:3<br /><br />
-	Viking Platoon is made up of four elements, you form part of Viking 1, which is the command element of the Platoon<br /><br />
-	The Platoon has two main fighting squads: Viking 2 and Viking 3. Each squad is made up of 7 units across multiple disciplines.
-	The forth Platoon element is Raptor - airborne ops<br /><br />
-	Your deployment will vary, you will need to embed with Viking 1, 2 and 3 as the situation dictates - additionally, as part of the command element, you will be requrired to take on Platoon Lead or Padre Radio Duties as instructed<br /><br />
-	Stay sharp shooter!<br /><br />
-		</t>
-", _fontSize]);
+	<t size='%3'>
+		Welcome to Operation Killchain<br /><br /><br />
+		%1<br /><br />
+		Viking Platoon is made up of four elements - Viking 1 is the command element, Viking 2 and 3 are the main combat squads, Raptor is the fourth airborne branch<br /><br />
+		You are the Squad Sniper within Viking %2<br /><br />
+		As the designated marksman for your team, you will be required to work closely with your squad leader to ensure you provide the required recon, scouting, defence and attack support for your squad
+		Stay sharp shooter!<br /><br />
+	</t>
+", _youAre, _squad, _fontSize]);
 _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
 sleep 30;

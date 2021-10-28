@@ -1,4 +1,3 @@
-
 _youAre = _this select 0;
 _interfaceSize = _this select 1;
 
@@ -23,17 +22,18 @@ switch (_interfaceSize) do {
 disableSerialization;
 600 cutRsc ["WELCOME_TEXT", "PLAIN"];
 waitUntil {!isNull (uiNameSpace getVariable "WELCOME_TEXT")};
+
 _displayOBJUNITS = uiNameSpace getVariable "WELCOME_TEXT";
 _setText = _displayOBJUNITS displayCtrl 999500;
 _setText ctrlSetStructuredText (parseText format ["
-<t size='%3'>
-	Welcome to Operation Killchain<br /><br /><br />
-	%1<br /><br />
-	Viking Platoon is made up of four elements - Viking 1 is the command element, Viking 2 and 3 are the main combat squads, Raptor is the fourth airborne branch<br /><br />
-	You are a Light Machine Gunner within Viking %2 Squad<br /><br />
-	As a Viking LMG, you are responsible providing sustained fire coverage on the front line, working in partership with the squad GPMG to deliver lethal fire-corridors<br /><br />
-	Good luck out there Gunner!<br /><br />
-		</t>
+	<t size='%3'>
+		Welcome to Operation Killchain<br /><br /><br />
+		%1<br /><br />
+		Viking Platoon is made up of four elements - Viking 1 is the command element, Viking 2 and 3 are the main combat squads, Raptor is the fourth airborne branch<br /><br />
+		You are a Light Machine Gunner within Viking %2 Squad<br /><br />
+		As a Viking LMG, you are responsible providing sustained fire coverage on the front line, working in partership with the squad GPMG to deliver lethal fire-corridors<br /><br />
+		Good luck out there Gunner!<br /><br />
+	</t>
 ", _youAre, _squad, _fontSize]);
 _setText ctrlSetBackgroundColor [0,0,0,0.5];
 

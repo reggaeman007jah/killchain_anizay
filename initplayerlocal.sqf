@@ -17,20 +17,20 @@ sleep 11;
 player setCustomAimCoef 0.9;
 player addEventHandler ['Respawn',{ player setCustomAimCoef 0.9 }];
 
-sleep 5;
+sleep 1;
 
 // untested !!
-tinmanModule addCuratorEditableObjects [[player], true];
+// tinmanModule addCuratorEditableObjects [[player], true];
 
-private _playerFaction = faction player;
+// private _playerFaction = faction player;
 // systemChat format ["you are %1 faction", _playerFaction];
 
-if (_playerFaction == "I_ARVN") then {
-	vamp = false;
-	systemChat "you have use of FNC-based voice activated systems";
-	// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
-	[] spawn RGGv_fnc_voice_VAHCO_init;
-};
+// if (_playerFaction == "I_ARVN") then {
+// 	vamp = false;
+// 	systemChat "you have use of FNC-based voice activated systems";
+// 	// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
+// 	[] spawn RGGv_fnc_voice_VAHCO_init;
+// };
 
 // systemChat "DEBUG / EH - Init Player Local Heal EH Running"; // what is this????
 
@@ -49,7 +49,7 @@ _res = getResolution;
 _interfaceSize = _res select 5;
 
 _playerRole = roleDescription player;
-// [_playerRole, _interfaceSize] call RGGr_fnc_roles_welcomeText;
+[_playerRole, _interfaceSize] call RGGr_fnc_roles_welcomeText;
 
 switch (_playerRole) do {
 	case "Viking 1:1 - Platoon Leader@Viking 1": {
