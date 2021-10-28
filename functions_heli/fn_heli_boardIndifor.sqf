@@ -1,21 +1,10 @@
 /*
 Boarding system 
-[_pilot, _heli] spawn RGGh_fnc_heli_boardIndifor; 
 */
 _pilot = _this select 0;
 _heli = _this select 1;
 _freeCargoPositions = _heli emptyPositions "cargo";
 
-
-// _passed = _this select 0; // from trigger 
-
-// _pilot = _passed select 0;
-// _freeCargoPositions = _this select 0;
-// _heli = _this select 1;
-
-
-// _heli = vehicle _pilot;
-// _freeCargoPositions = _heli emptyPositions "cargo"; 
 CANBOARD = false;
 
 if (RGG_availableIndifor > 0) then {
@@ -71,5 +60,5 @@ if (RGG_availableIndifor > 0) then {
 
 } else {
 	// no units available - better go rescue some civvies first 
-	"There are no Peshmerga Fighters available currently - Rescue more civilians to generate more fighters" remoteExec ["systemChat", 0, true];
+	"There are no Peshmerga Fighters available currently - Rescue more civilians etc to generate more fighters" remoteExec ["systemChat", 0, true];
 };

@@ -11,14 +11,14 @@ _altCheck = false;
 
 while {_redCheck} do {
 
-	systemChat "_redCheck - not in redzone";
+	// systemChat "_redCheck - not in redzone";
 	if (isEngineOn _heli) then {
 		_pos = getPos _heli; // get heli position 
 		_inRed = _pos inArea "redzone";
 		if (_inRed) then {
 			_redCheck = false;
 			_altCheck = true;
-			"_redCheck - heli is in redzone - switching to alt-check";
+			// "_redCheck - heli is in redzone - switching to alt-check";
 		};
 	} else {
 		// this should shut everything down if the engine is turned off
@@ -45,15 +45,15 @@ while {_altCheck} do {
 			_speed = speed _heli;
 			if (_speed < 1) then {
 
-				systemChat "debug - speed is less than 1";
-				systemChat format ["_cargo: %1", _cargo];
+				// systemChat "debug - speed is less than 1";
+				// systemChat format ["_cargo: %1", _cargo];
 
 				sleep 1;
 
 				if (_speed < 1) then {
 					// second speed check is to ensure heli is not moving around 
 					_markerName = str _heli; // unique marker name
-					systemChat format ["_markerName: %1", _markerName];
+					// systemChat format ["_markerName: %1", _markerName];
 					_extractLocation = position _heli;
 					_extractMarker = createMarker [_markerName, _extractLocation];
 					_extractMarker setMarkerShape "ELLIPSE";
@@ -111,89 +111,10 @@ while {_altCheck} do {
 						} forEach _cargo;
 					};
 
-
-
-
-
-
-
-
-
-
-
-					// // {
-					// // 	_x orderGetIn false;
-					// // } forEach crew _heli;
-
-					// // {
-					// // 	_x setUnitPos "AUTO";
-					// // } forEach _passengers; // should this be for HK group?
-
-					// // send indifor units towards indifor player pos - if there is one 
-					// // if no indifor player, then they go to OBJ pos 
-					// _dataStore = [];
-					// {
-					// 	if ((side _x) == INDEPENDENT) then { _dataStore pushback _x }
-					// } forEach allPlayers;
-
-					// _cnt = count _dataStore;
-					// if (_cnt == 1) then {
-					// 	// there is an indifor player in game - move to that pos 
-					// 	_commander = _dataStore select 0;
-					// 	_commPos = getPos _commander;
-					// 	{
-					// 		_x setBehaviour "COMBAT";
-					// 		_x move _commPos;
-					// 	} forEach _units;
-					// } else {
-					// 	// no indi player in game - move to obj pos 
-					// 	systemChat "confirmed - no indifor player in game";
-					// 	_movePos = getMarkerPos 'REDZONE';
-					// 	_units = allUnits inAreaArray _markerName;
-
-					// 	_cargoCount = count _cargo;
-					// 	systemChat format ["_cargoCount: %1", _cargoCount];
-
-					// 	for "_i" from 1 to 4 do {
-					// 		_freeCargoPositions = _heli emptyPositions "cargo";
-					// 		systemChat format ["Empty positions: %1", _freeCargoPositions];
-					// 		_cargoCount = count _cargo;
-					// 		if (_freeCargoPositions >= _cargoCount) then {
-					// 			systemChat "heli is empty";
-					// 		};
-					// 		sleep 5;
-					// 	};
-
-					// 	systemChat "check has finished";
-
-					// 	sleep 5;
-					// 	systemChat "move orders ...";
-					// 	{
-					// 		_x setBehaviour "COMBAT";
-					// 		_x doMove _movePos;
-					// 		systemChat format ["Unit %1 moving to %2", _x, _movePos];	
-					// 		sleep 1;
-					// 	} forEach _cargo;
-					// };
-
 					_altCheck = false;
 					// sleep 5;
 					// systemChat "deleting marker";
 					deleteMarker _markerName;
-
-					// // here we should check what the cargo status is using a number of different checks 
-					// _crewCount = ["B_Heli_Light_01_F", false] call BIS_fnc_crewCount; // only crew 
-					// _crewCount2 = ["B_Heli_Transport_01_F", true] call BIS_fnc_crewCount; // Counts all available seats including cargo slots. 
-					// _freeCargoPositions = _heli emptyPositions "cargo";
-					// // this should only return the pilot and/or co-pilot 
-					// hint format ["DEBUG CHECK DEPLOY - _crewCount: %1 / _crewCount2: %2 / _freeCargoPositions: %3", _crewCount, _crewCount2, _freeCargoPositions];
-					// sleep 3;
-					// {
-					// 	_vehicle = assignedVehicle _x;
-					// 	systemChat format ["Unassigning vehicle %1 from player %2", _vehicle, _x];
-					// } forEach allPlayers;
-
-
 				};
 			};
 		};
