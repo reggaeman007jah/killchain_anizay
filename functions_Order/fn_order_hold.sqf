@@ -17,3 +17,21 @@ _indi = [];
 	_x doMove _pos;
 	sleep 0.1;
 } forEach _indi;
+
+// new 
+// one off move order - all indiRed hold position  
+
+"INDI Groups are holding position" remoteExec ["systemChat", -2];
+// {playSound "attack"} remoteExec ["call",-2];
+// {playSound "commandOut"} remoteExec ["call",0];
+// systemChat "played sound";
+FALLBACKREMAIN = false; // in case was running 
+
+_selection = allGroups select {side _x isEqualTo independent};
+{
+	_movePos = getPos leader _x;
+	_x move _movePos;
+	systemChat format ["DEBUG - MOVE ORDER / Group %1 is holding at %2", _x, _movePos];
+} forEach _selection;
+
+// think about finding the closest unit to target then making then leader (set leader) then using that pos as hold pos 

@@ -137,7 +137,7 @@ switch (_playerRole) do {
 	// case "Raptor 1 - Squadron Leader@Raptor": 			{ [_interfaceSize] spawn RGGr_fnc_roles_raptor1; };
 	// case "Raptor 2 - Squadron 2IC@Raptor": 				{ [_interfaceSize] spawn RGGr_fnc_roles_raptor2; };
 
-	default { systemChat "ERROR - initplayerlocal switch" };
+	default { systemChat "" };
 };
 
 

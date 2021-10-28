@@ -37,6 +37,9 @@ class RGGg {
 			Description = "This function will return one random player on ground";
 		};
 
+		class get_tinmanPos {
+			Description = "This function will return position of Tinman player";
+		};
 	};
 };
 

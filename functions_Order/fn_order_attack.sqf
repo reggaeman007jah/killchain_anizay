@@ -1,13 +1,26 @@
 // one off move order - all indiRed move in to attack objective 
 
-// systemChat "ARVN Units are assaulting the objective";
-"INDI Groups are assaulting the objective" remoteExec ["systemChat", -2, true];
+"INDI Groups are assaulting the objective" remoteExec ["systemChat", -2];
 // {playSound "attack"} remoteExec ["call",-2];
 // {playSound "commandOut"} remoteExec ["call",0];
 // systemChat "played sound";
 FALLBACKREMAIN = false; // in case was running 
 
 _movePos = getMarkerPos 'REDZONE'; // objective
+
+_selection = allGroups select {side _x isEqualTo independent};
+_cnt = count _selection;
+
+{
+	_x move _movePos;
+	_x setFormation "DIAMOND";
+	systemChat format ["DEBUG - MOVE ORDER / Group %1 moving to %2", _x, _movePos];
+} forEach _selection;
+
+
+
+
+// old snippets might be useful: 
 
 // _units = allUnits inAreaArray "Redzone";
 
@@ -20,14 +33,6 @@ _movePos = getMarkerPos 'REDZONE'; // objective
 // {
 // 	_indiGroups pushBack _x;
 // } forEach allGroups "independent";
-
-_selection = allGroups select {side _x isEqualTo independent};//returns all east groups
-
-sleep 2;
-
-{
-	_x move _movePos;
-} forEach _selection;
 
 // // get indi player
 // _dataStore = [];

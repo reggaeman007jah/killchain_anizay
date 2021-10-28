@@ -165,6 +165,8 @@ while {RFCHECK} do {
 		if (!BLUMAN) then {
 			systemChat "LOGIC - initiate indifor insurance move order";
 			[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
+		} else {
+			systemChat "LOGIC - Indifor are under Tinman control";
 		};
 	};
 	sleep 120;
