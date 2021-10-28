@@ -20,7 +20,7 @@ _cargo = [];
 for "_i" from 1 to _freeCargoPositions do {
 	_class = selectRandom _classes;
 	_unit = _stampToString createUnit [_class, _spawn, [], 0.1, "none"]; 
-	tinmanModule addCuratorEditableObjects [[_unit], true];
+	// tinmanModule addCuratorEditableObjects [[_unit], true];
 	bluforZeus addCuratorEditableObjects [[_unit], true];
 	_unit assignAsCargo _heli;
 	[_unit] orderGetIn true;

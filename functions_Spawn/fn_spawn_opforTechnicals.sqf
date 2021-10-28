@@ -34,7 +34,7 @@ if (isNull _isOnGround) then {
 
 	sleep 5;
 	{
-		tinmanModule addCuratorEditableObjects [[_x], true];
+		// tinmanModule addCuratorEditableObjects [[_x], true];
 		systemChat format ["DEBUG / SPAWN - tinmanZeus _x: %1", _x];
 		sleep 1;
 	} forEach _techCargo;

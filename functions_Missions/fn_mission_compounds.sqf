@@ -136,7 +136,7 @@ while {TRUE} do {
 					_opGroup = createGroup [east, true]; 
 					_class = selectRandom _enemyClasses;
 					_unit = _opGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
-					tinmanModule addCuratorEditableObjects [[_unit], true];
+					// tinmanModule addCuratorEditableObjects [[_unit], true];
 					bluforZeus addCuratorEditableObjects [[_unit], true];
 
 					_spawnedEnemy = _spawnedEnemy +1;
@@ -171,7 +171,7 @@ while {TRUE} do {
 					_unit2 removeItem "Item_Medikit";
 					_unit2 forceSpeed 0; 
 
-					tinmanModule addCuratorEditableObjects [[_unit2], true];
+					// tinmanModule addCuratorEditableObjects [[_unit2], true];
 					bluforZeus addCuratorEditableObjects [[_unit2], true];
 				};
 			};

@@ -9,7 +9,6 @@ FALLBACKREMAIN = false; // in case was running
 _movePos = getMarkerPos 'REDZONE'; // objective
 
 _selection = allGroups select {side _x isEqualTo independent};
-_cnt = count _selection;
 
 {
 	_x move _movePos;

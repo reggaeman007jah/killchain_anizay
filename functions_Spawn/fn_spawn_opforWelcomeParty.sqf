@@ -19,7 +19,7 @@ for "_i" from 1 to _diffLevel do {
 		_unit setBehaviour "COMBAT";
 		_unit doMove _initStartPos; 
 		// spawnedOpforUnit = spawnedOpforUnit + 1;
-		tinmanModule addCuratorEditableObjects [[_unit], true];
+		// tinmanModule addCuratorEditableObjects [[_unit], true];
 		bluforZeus addCuratorEditableObjects [[_unit], true];	
 		sleep 2;						
 	};

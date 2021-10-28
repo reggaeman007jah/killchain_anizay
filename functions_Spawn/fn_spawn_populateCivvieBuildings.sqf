@@ -125,7 +125,7 @@ while {true} do {
 						_class = selectRandom _enemyClasses;
 						_unit = _civGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
 
-						tinmanModule addCuratorEditableObjects [[_unit], true];
+						// tinmanModule addCuratorEditableObjects [[_unit], true];
 						bluforZeus addCuratorEditableObjects [[_unit], true];
 
 						_spawnedInjured = _spawnedInjured +1;

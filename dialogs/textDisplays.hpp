@@ -391,6 +391,131 @@ class RscTitles {
 		};
 	};
 
+	class FULLSCREEN {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "FULLSCREEN";
+		onLoad = "with uiNameSpace do { FULLSCREEN = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999505;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.100 * safezoneW + safezoneX;
+				y = 0.100 * safezoneH + safezoneY;
+				w = 0.800 * safezoneW;
+				h = 0.800 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "2";
+				}; 
+            };
+		};
+	};
+
+	class COL1 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL1";
+		onLoad = "with uiNameSpace do { COL1 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999506;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.200 * safezoneW + safezoneX;
+				y = 0.100 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
+	class COL2 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL2";
+		onLoad = "with uiNameSpace do { COL2 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999507;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.300 * safezoneW + safezoneX;
+				y = 0.100 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
 };
 
 

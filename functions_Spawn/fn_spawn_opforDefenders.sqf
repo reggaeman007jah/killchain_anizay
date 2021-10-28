@@ -10,7 +10,7 @@ for "_i" from 1 to _rndOp1 do {
 	_rndtype = [] call RGGg_fnc_get_randomOpforClassname; 
 	_pos = [_objPos, 0, 40] call BIS_fnc_findSafePos;
 	_unit = _grp createUnit [_rndtype, _pos, [], 30, "none"]; 
-	tinmanModule addCuratorEditableObjects [[_unit], true];
+	// tinmanModule addCuratorEditableObjects [[_unit], true];
 	bluforZeus addCuratorEditableObjects [[_unit], true];
 	_randomDir = selectRandom [270, 290, 01, 30, 90];
 	_randomDist = selectRandom [5, 25, 50, 75]; 

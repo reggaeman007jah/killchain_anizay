@@ -18,7 +18,7 @@ for "_i" from 1 to _random do {
 	_unit moveInGunner _static;
 	_unit setBehaviour "COMBAT";
 	// setDir ??
-	tinmanModule addCuratorEditableObjects [[_static, _unit], true];
+	// tinmanModule addCuratorEditableObjects [[_static, _unit], true];
 	bluforZeus addCuratorEditableObjects [[_static, _unit], true]; 								
 };
 
@@ -41,7 +41,7 @@ for "_i" from 1 to _random do {
 	_unit moveInGunner _static;
 	_unit setBehaviour "COMBAT";
 
-	tinmanModule addCuratorEditableObjects [[_static, _unit], true];
+	// tinmanModule addCuratorEditableObjects [[_static, _unit], true];
 	bluforZeus addCuratorEditableObjects [[_static, _unit], true];								
 };
 

@@ -139,7 +139,7 @@ _markersToDelete = []; // used to manage cleanup of markers after extract
 		_class = selectRandom _classes;
 		_unit = _civGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
 
-		tinmanModule addCuratorEditableObjects [[_unit], true];
+		// tinmanModule addCuratorEditableObjects [[_unit], true];
 		bluforZeus addCuratorEditableObjects [[_unit], true];
 
 		_spawnedInjured = _spawnedInjured +1;
@@ -179,7 +179,7 @@ _markersToDelete = []; // used to manage cleanup of markers after extract
 			_class = selectRandom _enemyClasses;
 			_unit2 = _opGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
 			_unit2 setUnitPos "middle";
-			tinmanModule addCuratorEditableObjects [[_unit2], true];
+			// tinmanModule addCuratorEditableObjects [[_unit2], true];
 			bluforZeus addCuratorEditableObjects [[_unit2], true];
 		};
 	};

@@ -36,7 +36,7 @@ if (RGG_availableIndifor > 0) then {
 			_class = selectRandom _classes;
 			// _class = [] call RGGg_fnc_get_randomIndiforClassname; 
 			_unit = _stampToString createUnit [_class, _spawn, [], 0.1, "none"]; 
-			tinmanModule addCuratorEditableObjects [[_unit], true];
+			// tinmanModule addCuratorEditableObjects [[_unit], true];
 			bluforZeus addCuratorEditableObjects [[_unit], true];
 			_unit assignAsCargo _heli;
 			[_unit] orderGetIn true;

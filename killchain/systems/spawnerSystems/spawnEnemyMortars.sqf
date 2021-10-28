@@ -25,6 +25,6 @@ _static = _class createVehicle _pos;
 _unit moveInGunner _static;
 _unit setBehaviour "COMBAT";
 
-tinmanModule addCuratorEditableObjects [[_static, _unit], true];
+// tinmanModule addCuratorEditableObjects [[_static, _unit], true];
 bluforZeus addCuratorEditableObjects [[_static, _unit], true];
 

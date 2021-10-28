@@ -217,7 +217,7 @@ for "_i" from 1 to _diffLevel do {
 		_unit setBehaviour "COMBAT";
 		_unit doMove _initStartPos; 
 		
-		tinmanModule addCuratorEditableObjects [[_unit], true];
+		// tinmanModule addCuratorEditableObjects [[_unit], true];
 		bluforZeus addCuratorEditableObjects [[_unit], true];
 		// spawnedOpforUnit = spawnedOpforUnit + 1;
 		sleep 2;						
@@ -256,7 +256,7 @@ for "_i" from 1 to _rndOp1 do {
 	_unit setBehaviour "COMBAT";
 	_unit doMove _endPoint;
 	
-	tinmanModule addCuratorEditableObjects [[_unit], true];
+	// tinmanModule addCuratorEditableObjects [[_unit], true];
 	bluforZeus addCuratorEditableObjects [[_unit], true];
 	// spawnedOpforUnit = spawnedOpforUnit +1;
  	sleep 1;									
@@ -501,7 +501,7 @@ for "_i" from 1 to 2 do {
 			_unit1 = _opforGroup createUnit [_unit, _anchor1a, [], 0.1, "none"];
 			_opforTeam pushBack _unit1;
 		};
-		tinmanModule addCuratorEditableObjects [_opforTeam, true];
+		// tinmanModule addCuratorEditableObjects [_opforTeam, true];
 		bluforZeus addCuratorEditableObjects [_opforTeam, true];
 		sleep 0.7;
 
@@ -530,7 +530,7 @@ if (patrolPointsTaken > 2) then {
 				_unit1 = _opforGroup createUnit [_unit, _qrfAnchor, [], 0.1, "none"];
 				_opforTeam pushBack _unit1;
 			};
-			tinmanModule addCuratorEditableObjects [_opforTeam, true];
+			// tinmanModule addCuratorEditableObjects [_opforTeam, true];
 			bluforZeus addCuratorEditableObjects [_opforTeam, true];
 			sleep 0.7;
 

@@ -25,6 +25,9 @@ class RGGi {
 			Description = "This function will render map markers";
 		};
 
+		class information_sitrep {
+			Description = "This function will render indifor group info";
+		};
 
 		// class get_allPlayersOnGround {
 		// 	Description = "This function will return all players on the ground";

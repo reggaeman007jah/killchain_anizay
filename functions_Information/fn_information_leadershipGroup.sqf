@@ -14,10 +14,9 @@ _group = [];
 	switch (_playerRole) do {
 		case "Viking 1:1 - Platoon Leader@Viking 1":		{ _group pushBack _x };
 		case "Viking 1:2 - Platoon 2IC / Padre@Viking 1":	{ _group pushBack _x };
-		case "Viking 1:3 - Platoon Sniper@Viking 1":		{ _group pushBack _x };
+		// case "Viking 1:3 - Platoon Sniper@Viking 1":		{ _group pushBack _x };
 
 		case "Viking 2:1 - Squad Leader@Viking 2":			{ _group pushBack _x };
-
 		case "Viking 3:1 - Squad Leader@Viking 3":			{ _group pushBack _x };
 
 		case "Raptor 1 - Squadron Leader@Raptor":			{ _group pushBack _x; };

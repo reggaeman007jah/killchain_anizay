@@ -46,7 +46,7 @@ if (patrolPointsTaken >= 0 ) then {
 		_opforTeam pushBack _unit;
 	};
 
-	tinmanModule addCuratorEditableObjects [_opforTeam, true];
+	// tinmanModule addCuratorEditableObjects [_opforTeam, true];
 	bluforZeus addCuratorEditableObjects [_opforTeam, true];
 
 	// --- random move orders --- //

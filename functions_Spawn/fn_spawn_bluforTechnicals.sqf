@@ -16,7 +16,7 @@ _bluforVic = [_pos, 180, _class, west] call BIS_fnc_spawnVehicle;
 _techCargo = _bluforVic select 1;
 {
 	bluforZeus addCuratorEditableObjects [[_x], true];
-	tinmanModule addCuratorEditableObjects [[_x], true];
+	// tinmanModule addCuratorEditableObjects [[_x], true];
 } forEach _techCargo;
 
 _randomMovePos = [["redzone"]] call BIS_fnc_randomPos;
