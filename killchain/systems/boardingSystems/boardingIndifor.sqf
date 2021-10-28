@@ -24,16 +24,24 @@ It will then:
 // systemChat format ["cargo check returns: %1", _cargo];
 // systemChat "boarding check activated - proves trigger works if you see this";
 // _boarding = true;
-_passed = _this select 0;
+_data = _this select 0;
+_player = _data select 0;
+// [_freeCargoPositions, _heli] spawn RGGh_fnc_heli_boardIndifor; 
 
-_pilot = _passed select 0;
-_heli = vehicle _pilot;
+// here we get the heli of the player that triggered the trigger, then we get the driver of said heli and pass that driver player along 
+_heli = vehicle _player;
+_pilot = driver _heli;
 
-_freeCargoPositions = _heli emptyPositions "cargo";
-hint format ["Free Cargo Positions: %1", _freeCargoPositions];
+[_pilot, _heli] spawn RGGh_fnc_heli_boardIndifor; 
 
-[_freeCargoPositions, _heli] execVM "killchain\systems\boardingSystems\boardUnits.sqf"; 
-CANBOARD = false;
+// _pilot = _passed select 0;
+// _heli = vehicle _pilot;
+
+// _freeCargoPositions = _heli emptyPositions "cargo";
+// hint format ["Free Cargo Positions: %1", _freeCargoPositions];
+
+// [_freeCargoPositions, _heli] execVM "killchain\systems\boardingSystems\boardUnits.sqf"; 
+// CANBOARD = false;
 
 
 // // spawn units 
