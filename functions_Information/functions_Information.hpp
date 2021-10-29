@@ -25,6 +25,10 @@ class RGGi {
 			Description = "This function will render map markers";
 		};
 
+		class information_showStats {
+			Description = "This function will render mission stats";
+		};
+
 		class information_sitrep {
 			Description = "This function will render indifor group info";
 		};

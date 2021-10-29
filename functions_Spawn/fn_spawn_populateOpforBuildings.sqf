@@ -163,14 +163,23 @@ while {true} do {
 							};
 
 							// now do civvie 1 in 4 chance 
-							_chance = selectRandom [1,2,3,4];
+							_chance = selectRandom [1,2,3];
 							if (_chance == 1) then {
 								_randomPosition = selectRandom _positions; 
 								_opGroup = createGroup [independent, true]; 
 								_class = selectRandom _civvieClasses;
 								_unit2 = _opGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
+								_unit2 addMPEventHandler ["MPKilled", {
+									params ["_unit", "_killer", "_instigator", "_useEffects"];
+									if (isPlayer _killer) then {
+										_name = groupId (group _killer);
+										// systemChat format ["%1 Killed a Civilian", _name];
+										["%1 Killed a Civilian", _name] call RGGi_fnc_information_leadershipGroup;
+										RGG_civviesKilled = RGG_civviesKilled + 1;
+										publicVariable "RGG_civviesKilled";
+									};	
+								}];
 								_unit2 setUnitPos "middle";
-
 								_unit2 setDamage 0.6;
 								_unit2 removeItem "Item_Medikit";
 								_unit2 removeItem "Item_Medikit";

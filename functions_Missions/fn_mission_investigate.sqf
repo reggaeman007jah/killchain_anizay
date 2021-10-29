@@ -141,7 +141,11 @@ _markersToDelete = []; // used to manage cleanup of markers after extract
 		_unit addMPEventHandler ["MPKilled", {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
 			if (isPlayer _killer) then {
-				systemChat "YOU SLOTTED A GOOD GUY";
+				_name = groupId (group _killer);
+				// systemChat format ["%1 Killed a Civilian", _name];
+				["%1 Killed a Civilian", _name] call RGGi_fnc_information_leadershipGroup;
+				RGG_civviesKilled = RGG_civviesKilled + 1;
+				publicVariable "RGG_civviesKilled";
 			};
 		}];
 

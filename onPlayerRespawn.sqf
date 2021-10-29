@@ -29,6 +29,10 @@ switch (_playerRole) do {
 				};
 			} forEach allPlayers;
 		}];
+		player addAction ["Mission Stats", { 
+			[] remoteExec ["RGGi_fnc_information_showStats", player];
+
+		}];
 		player addAction ["DEBUG - Check assigned player vics", { 
 			// _vics = [];
 			{
