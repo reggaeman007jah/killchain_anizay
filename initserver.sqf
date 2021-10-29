@@ -138,6 +138,12 @@ publicVariable "RGG_indiforKills";
 RGG_bluforKills = 0;
 publicVariable "RGG_bluforKills";
 
+RGG_bluforDeaths = 0;
+publicVariable "RGG_bluforDeaths";
+
+RGG_indiforDeaths = 0;
+publicVariable "RGG_indiforDeaths";
+
 RGG_bldBlacklist = [[0,0,0]]; // needs a base data entry to avoid errors 
 publicVariable "RGG_bldBlacklist";
 

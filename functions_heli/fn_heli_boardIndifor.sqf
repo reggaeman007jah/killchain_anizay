@@ -36,6 +36,13 @@ if (RGG_availableIndifor > 0) then {
 		publicVariable "RGG_indiforCreated";
 		_class = selectRandom _classes;
 		_unit = _stampToString createUnit [_class, _spawn, [], 0.1, "none"]; 
+
+		_unit addMPEventHandler ["MPKilled", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			RGG_indiforDeaths = RGG_indiforDeaths + 1;
+			publicVariable "RGG_indiforDeaths";
+		}];
+
 		bluforZeus addCuratorEditableObjects [[_unit], true];
 		_unit assignAsCargo _heli;
 		[_unit] orderGetIn true;
