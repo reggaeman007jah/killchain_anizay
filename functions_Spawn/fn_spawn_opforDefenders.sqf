@@ -10,6 +10,16 @@ for "_i" from 1 to _rndOp1 do {
 	_rndtype = [] call RGGg_fnc_get_randomOpforClassname; 
 	_pos = [_objPos, 0, 40] call BIS_fnc_findSafePos;
 	_unit = _grp createUnit [_rndtype, _pos, [], 30, "none"]; 
+	_unit addMPEventHandler ["MPKilled", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		if (isPlayer _killer) then {
+			RGG_bluforKills = RGG_bluforKills + 1;
+			publicVariable "RGG_bluforKills";
+		} else {
+			RGG_indiforKills = RGG_indiforKills + 1;
+			publicVariable "RGG_indiforKills";
+		};	
+	}];
 	// tinmanModule addCuratorEditableObjects [[_unit], true];
 	bluforZeus addCuratorEditableObjects [[_unit], true];
 	_randomDir = selectRandom [270, 290, 01, 30, 90];

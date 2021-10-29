@@ -97,6 +97,8 @@ for "_i" from 0 to 1 do {
 				deleteMarker "_mkrName";
 				_checking = false;
 				["Enemy AA Destroyed"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+				RGG_destroyedAA = RGG_destroyedAA + 1;
+				publicVariable "RGG_destroyedAA";
 			};
 			sleep 20;
 		};

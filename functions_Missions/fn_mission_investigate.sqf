@@ -189,6 +189,16 @@ _markersToDelete = []; // used to manage cleanup of markers after extract
 			_opGroup = createGroup [east, true]; 
 			_class = selectRandom _enemyClasses;
 			_unit2 = _opGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
+			_unit2 addMPEventHandler ["MPKilled", {
+				params ["_unit", "_killer", "_instigator", "_useEffects"];
+				if (isPlayer _killer) then {
+					RGG_bluforKills = RGG_bluforKills + 1;
+					publicVariable "RGG_bluforKills";
+				} else {
+					RGG_indiforKills = RGG_indiforKills + 1;
+					publicVariable "RGG_indiforKills";
+				};	
+			}];
 			_unit2 setUnitPos "middle";
 			// tinmanModule addCuratorEditableObjects [[_unit2], true];
 			bluforZeus addCuratorEditableObjects [[_unit2], true];

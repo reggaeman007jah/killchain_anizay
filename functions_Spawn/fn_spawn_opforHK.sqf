@@ -215,6 +215,16 @@ while {SPECOPSATTACKS} do {
 			_pos = _spawnPos getPos [_dist, _dir];
 			_unit = _opGroup createUnit [_x, _pos, [], 0.1, "none"]; 
 			_unit setCombatMode "GREEN";
+			_unit addMPEventHandler ["MPKilled", {
+				params ["_unit", "_killer", "_instigator", "_useEffects"];
+				if (isPlayer _killer) then {
+					RGG_bluforKills = RGG_bluforKills + 1;
+					publicVariable "RGG_bluforKills";
+				} else {
+					RGG_indiforKills = RGG_indiforKills + 1;
+					publicVariable "RGG_indiforKills";
+				};	
+			}];
 			// tinmanModule addCuratorEditableObjects [[_unit], true];
 			bluforZeus addCuratorEditableObjects [[_unit], true];
 			sleep 0.2;

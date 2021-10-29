@@ -14,6 +14,16 @@ for "_i" from 1 to _random do {
 	_class = [] call RGGg_fnc_get_randomOpforStaticClassname; 
 	_pos = [_objPos, 0, 50] call BIS_fnc_findSafePos;
 	_unit = _grp createUnit [_manned, _pos, [], 1, "none"];
+	_unit addMPEventHandler ["MPKilled", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		if (isPlayer _killer) then {
+			RGG_bluforKills = RGG_bluforKills + 1;
+			publicVariable "RGG_bluforKills";
+		} else {
+			RGG_indiforKills = RGG_indiforKills + 1;
+			publicVariable "RGG_indiforKills";
+		};	
+	}];
 	_static = _class createVehicle _pos;
 	_unit moveInGunner _static;
 	_unit setBehaviour "COMBAT";
@@ -37,6 +47,16 @@ for "_i" from 1 to _random do {
 	_startPos = _this select 0;
 	_pos = [_startPos, 0, 100] call BIS_fnc_findSafePos;
 	_unit = _grp createUnit [_manned, _pos, [], 1, "none"];
+	_unit addMPEventHandler ["MPKilled", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		if (isPlayer _killer) then {
+			RGG_bluforKills = RGG_bluforKills + 1;
+			publicVariable "RGG_bluforKills";
+		} else {
+			RGG_indiforKills = RGG_indiforKills + 1;
+			publicVariable "RGG_indiforKills";
+		};	
+	}];
 	_static = _class createVehicle _pos;
 	_unit moveInGunner _static;
 	_unit setBehaviour "COMBAT";

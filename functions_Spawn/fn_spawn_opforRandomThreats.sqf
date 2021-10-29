@@ -43,6 +43,16 @@ if (patrolPointsTaken >= 0 ) then {
 	for "_i" from 1 to _size do {
 		_className = [] call RGGg_fnc_get_randomOpforClassname; 
 		_unit = _opforGroup createUnit [_className, _randomEnemySpawnPos, [], 0.1, "none"];
+		_unit addMPEventHandler ["MPKilled", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			if (isPlayer _killer) then {
+				RGG_bluforKills = RGG_bluforKills + 1;
+				publicVariable "RGG_bluforKills";
+			} else {
+				RGG_indiforKills = RGG_indiforKills + 1;
+				publicVariable "RGG_indiforKills";
+			};	
+		}];
 		_opforTeam pushBack _unit;
 	};
 

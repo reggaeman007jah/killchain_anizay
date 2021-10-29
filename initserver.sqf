@@ -129,6 +129,15 @@ publicVariable "RGG_availableIndifor";
 RGG_indiforCreated = 0;
 publicVariable "RGG_indiforCreated";
 
+RGG_destroyedAA = 0;
+publicVariable "RGG_destroyedAA";
+
+RGG_indiforKills = 0;
+publicVariable "RGG_indiforKills";
+
+RGG_bluforKills = 0;
+publicVariable "RGG_bluforKills";
+
 RGG_bldBlacklist = [[0,0,0]]; // needs a base data entry to avoid errors 
 publicVariable "RGG_bldBlacklist";
 

@@ -16,6 +16,16 @@ for "_i" from 1 to _diffLevel do {
 		_pos = [_objPos, 0, 30] call BIS_fnc_findSafePos; 
 		_rndtype = [] call RGGg_fnc_get_randomOpforClassname; 
 		_unit = _grp createUnit [_rndtype, _pos, [], 1, "none"]; 
+		_unit addMPEventHandler ["MPKilled", {
+			params ["_unit", "_killer", "_instigator", "_useEffects"];
+			if (isPlayer _killer) then {
+				RGG_bluforKills = RGG_bluforKills + 1;
+				publicVariable "RGG_bluforKills";
+			} else {
+				RGG_indiforKills = RGG_indiforKills + 1;
+				publicVariable "RGG_indiforKills";
+			};	
+		}];
 		_unit setBehaviour "COMBAT";
 		_unit doMove _initStartPos; 
 		// spawnedOpforUnit = spawnedOpforUnit + 1;

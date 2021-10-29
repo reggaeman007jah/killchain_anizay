@@ -264,6 +264,16 @@ for "_i" from 1 to 2 do {
 		for "_i" from 1 to 5 do {
 			_unit = [] call RGGg_fnc_get_randomOpforClassname; 
 			_unit1 = _opforGroup createUnit [_unit, _anchor1a, [], 0.1, "none"];
+			_unit1 addMPEventHandler ["MPKilled", {
+				params ["_unit", "_killer", "_instigator", "_useEffects"];
+				if (isPlayer _killer) then {
+					RGG_bluforKills = RGG_bluforKills + 1;
+					publicVariable "RGG_bluforKills";
+				} else {
+					RGG_indiforKills = RGG_indiforKills + 1;
+					publicVariable "RGG_indiforKills";
+				};	
+			}];
 			// tinmanModule addCuratorEditableObjects [[_unit1], true];
 			bluforZeus addCuratorEditableObjects [[_unit1], true];
 			_opforTeam pushBack _unit1;
@@ -294,6 +304,16 @@ if (patrolPointsTaken > 2) then {
 			for "_i" from 1 to 2 do {
 				_unit = [] call RGGg_fnc_get_randomOpforClassname; 
 				_unit1 = _opforGroup createUnit [_unit, _qrfAnchor, [], 0.1, "none"];
+				_unit1 addMPEventHandler ["MPKilled", {
+					params ["_unit", "_killer", "_instigator", "_useEffects"];
+					if (isPlayer _killer) then {
+						RGG_bluforKills = RGG_bluforKills + 1;
+						publicVariable "RGG_bluforKills";
+					} else {
+						RGG_indiforKills = RGG_indiforKills + 1;
+						publicVariable "RGG_indiforKills";
+					};	
+				}];
 				// tinmanModule addCuratorEditableObjects [[_unit1], true];
 				bluforZeus addCuratorEditableObjects [[_unit1], true];
 				_opforTeam pushBack _unit1;

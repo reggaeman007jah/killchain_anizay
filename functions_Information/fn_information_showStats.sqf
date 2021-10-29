@@ -29,12 +29,14 @@ _setText ctrlSetStructuredText (parseText format ["
 		CIVILIANS KILLED BY OUR ACTIONS: %1<br /><br />
 		CIVILIANS SAVED BY OUR ACTIONS: %2<br /><br />
 		TOTAL INDIFOR CREATED: %3<br /><br />
-		OPFOR NEUTRALISED BY BLUFOR: TBC<br /><br />
-		OPFOR NEUTRALISED BY INDIFOR: TBC<br /><br />
-		AA DESTROYED BY BLUFOR: tbc
+		OPFOR NEUTRALISED BY BLUFOR: %4<br /><br />
+		OPFOR NEUTRALISED BY INDIFOR: %5<br /><br />
+		AA DESTROYED BY BLUFOR: %6
 	</t>
-", RGG_civviesKilled, RGG_civviesSaved, RGG_indiforCreated]);
+", RGG_civviesKilled, RGG_civviesSaved, RGG_indiforCreated, RGG_bluforKills, RGG_indiforKills, RGG_destroyedAA]);
 _setText ctrlSetBackgroundColor [0,0,0,0.5];
+
+
 
 
 // <t size='%3'>
