@@ -516,6 +516,259 @@ class RscTitles {
             };
 		};
 	};
+
+	class COL3 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL3";
+		onLoad = "with uiNameSpace do { COL3 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999508;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.400 * safezoneW + safezoneX;
+				y = 0.100 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
+	class COL4 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL4";
+		onLoad = "with uiNameSpace do { COL4 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999509;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.500 * safezoneW + safezoneX;
+				y = 0.100 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
+	class COL5 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL5";
+		onLoad = "with uiNameSpace do { COL5 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999510;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.200 * safezoneW + safezoneX;
+				y = 0.500 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
+	class COL6 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL6";
+		onLoad = "with uiNameSpace do { COL6 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999511;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.300 * safezoneW + safezoneX;
+				y = 0.500 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
+	class COL7 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL7";
+		onLoad = "with uiNameSpace do { COL7 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999512;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.400 * safezoneW + safezoneX;
+				y = 0.500 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
+	class COL8 {
+        idd = 1000003;
+        movingEnable =  0;
+        enableSimulation = 1;
+        enableDisplay = 1;
+        duration     =  8;
+        fadein       =  2.5;
+        fadeout      =  2;
+        name = "COL8";
+		onLoad = "with uiNameSpace do { COL8 = _this select 0 }";
+	
+		class controls {
+		    class structuredText {
+                access = 0;
+                type = 13;
+                idc = 999513;
+                style = 0x00;
+                lineSpacing = 1;
+				x = 0.500 * safezoneW + safezoneX;
+				y = 0.500 * safezoneH + safezoneY;
+				w = 0.100 * safezoneW;
+				h = 0.400 * safezoneH;
+                size = 0.030;
+                colorBackground[] = {1,1,1,0.1};
+                colorText[] = {0,0,0,1};
+                text = "";
+                font = "PuristaSemiBold";
+				
+				class Attributes {
+					font = "PuristaSemiBold";
+					color = "#FFFFFF";
+					align = "LEFT";
+					valign = "CENTER";
+					shadow = false;
+					shadowColor = "#000000";
+					underline = false;
+					size = "1.2";
+				}; 
+            };
+		};
+	};
+
 };
 
 
