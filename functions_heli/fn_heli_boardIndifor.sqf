@@ -33,6 +33,7 @@ if (RGG_availableIndifor > 0) then {
 
 	for "_i" from 1 to _freeCargoPositions do {
 		RGG_indiforCreated = RGG_indiforCreated + 1;
+		publicVariable "RGG_indiforCreated";
 		_class = selectRandom _classes;
 		_unit = _stampToString createUnit [_class, _spawn, [], 0.1, "none"]; 
 		bluforZeus addCuratorEditableObjects [[_unit], true];

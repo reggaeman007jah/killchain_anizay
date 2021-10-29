@@ -174,7 +174,8 @@ while {true} do {
 									if (isPlayer _killer) then {
 										_name = groupId (group _killer);
 										// systemChat format ["%1 Killed a Civilian", _name];
-										["%1 Killed a Civilian", _name] call RGGi_fnc_information_leadershipGroup;
+										// ["%1 Killed a Civilian", _name] call RGGi_fnc_information_leadershipGroup;
+										["%1 Killed a Civilian", _name] remoteExec ["RGGi_fnc_information_leadershipGroup", 0]; 
 										RGG_civviesKilled = RGG_civviesKilled + 1;
 										publicVariable "RGG_civviesKilled";
 									};	

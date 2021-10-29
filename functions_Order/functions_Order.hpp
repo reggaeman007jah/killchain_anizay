@@ -21,6 +21,10 @@ class RGGo {
 			Description = "This function will order all civilians into nearest heli as cargo";
 		};
 
+		class order_disembark {
+			Description = "This function will force AI out of given heli";
+		};
+		
 		class order_getInCargo {
 			Description = "This test function will try to move selected unit into selected heli";
 		};

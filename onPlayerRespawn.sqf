@@ -62,7 +62,21 @@ switch (_playerRole) do {
 		systemChat "you have use of FNC-based voice activated systems";
 		[] spawn RGGv_fnc_voice_VAHCO_init;
 	};
+
+	case "Raptor 1 - Squadron Leader@Raptor": 			{
+		player addAction ["Eject AI", { 
+			[player] remoteExec ["RGGo_fnc_order_disembark", 2];
+		}];
+	};
+	case "Raptor 2 - Squadron 2IC@Raptor": 				{
+		player addAction ["Eject AI", { 
+			[player] remoteExec ["RGGo_fnc_order_disembark", 2];
+		}];
+	};
 	default { systemChat "" };
+
+
+
 };
 
 
@@ -94,5 +108,4 @@ if ((_respawningDesc == "Raptor 1 - Squadron Leader@Raptor") or (_respawningDesc
 		};
 	} forEach allPlayers;
 };
-
 

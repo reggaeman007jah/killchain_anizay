@@ -138,8 +138,16 @@ switch (_playerRole) do {
 	// case "Viking 3:6 - Combat Engineer@Viking 3":		{ ["You are Viking 3:6 / Viking 3 Combat Engineer",_interfaceSize] spawn RGGr_fnc_roles_engineer; };
 	// case "Viking 3:7 - Grenadier@Viking 3":				{ ["You are Viking 3:7 / Viking 3 Grenadier",_interfaceSize] spawn RGGr_fnc_roles_grenadier; };
 
-	// case "Raptor 1 - Squadron Leader@Raptor": 			{ [_interfaceSize] spawn RGGr_fnc_roles_raptor1; };
-	// case "Raptor 2 - Squadron 2IC@Raptor": 				{ [_interfaceSize] spawn RGGr_fnc_roles_raptor2; };
+	case "Raptor 1 - Squadron Leader@Raptor": 			{
+		player addAction ["Eject AI", { 
+			[player] remoteExec ["RGGo_fnc_order_disembark", 2];
+		}];
+	};
+	case "Raptor 2 - Squadron 2IC@Raptor": 				{
+		player addAction ["Eject AI", { 
+			[player] remoteExec ["RGGo_fnc_order_disembark", 2];
+		}];
+	};
 
 	default { systemChat "" };
 };

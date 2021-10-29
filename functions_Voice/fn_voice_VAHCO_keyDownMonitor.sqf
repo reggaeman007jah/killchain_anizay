@@ -37,8 +37,8 @@ while {VAHCO_numericalInputbool} do {
 			if (_orderType == 1) then {
 				systemChat "Copy - we are moving to your location now";
 				systemChat "Pesh Out";
-				[] spawn RGGo_fnc_order_fallBack;
-				// remoteExec ["RGGo_fnc_order_fallBack", 2]; 
+				// [] spawn RGGo_fnc_order_fallBack;
+				[] remoteExec ["RGGo_fnc_order_fallBack", 2]; 
 				// spawn RGGo_fnc_order_fallBack;
 				// execVM "voiceActivatedHighCommand\orders\fallBack.sqf";
 				// issue order to send all redzone indifor units to player pos 
@@ -48,8 +48,8 @@ while {VAHCO_numericalInputbool} do {
 			if (_orderType == 2) then {
 				systemChat "Copy - we are moving to your location now and will remain with you";
 				systemChat "Pesh Out";
-				[] spawn RGGo_fnc_order_fallBackRemain;
-				// remoteExec ["RGGo_fnc_order_fallBackRemain", 2]; 
+				// [] spawn RGGo_fnc_order_fallBackRemain;
+				[] remoteExec ["RGGo_fnc_order_fallBackRemain", 2]; 
 				// execVM "voiceActivatedHighCommand\orders\fallBackRemain.sqf";
 				// issue order to send all redzone indifor units to player pos - diff is that this will be a continuous movement around player pos 
 				// good for protection, or moving with the pack - might be slow going though 
@@ -58,7 +58,8 @@ while {VAHCO_numericalInputbool} do {
 			if (_orderType == 3) then {
 				systemChat "Copy - moving to attack objective";
 				systemChat "Pesh Out";
-				[] spawn RGGo_fnc_order_attack;
+				// [] spawn RGGo_fnc_order_attack;
+				[] remoteExec ["RGGo_fnc_order_attack", 2];
 				// remoteExec ["RGGo_fnc_order_attack", 2]; 
 				// execVM "voiceActivatedHighCommand\orders\attack.sqf";
 				// issue order to send all indifor to attack the OBJ 
@@ -68,7 +69,7 @@ while {VAHCO_numericalInputbool} do {
 				// systemChat "Copy = we have some units left";
 				// systemChat "bravo out";
 
-				remoteExec ["RGGo_fnc_order_sitrep", 2]; 
+				[] remoteExec ["RGGo_fnc_order_sitrep", 2]; 
 				// execVM "voiceActivatedHighCommand\orders\sitrep.sqf";
 				// Get a report of how many units are left in the redzone 
 				// useful to inform reinforcement requests 
@@ -77,8 +78,8 @@ while {VAHCO_numericalInputbool} do {
 			if (_orderType == 5) then {
 				systemChat "Copy we will hold position";
 				systemChat "Pesh Out";
-				[] spawn RGGo_fnc_order_hold;
-				// remoteExec ["RGGo_fnc_order_hold", 2]; 
+				// [] spawn RGGo_fnc_order_hold;
+				[] remoteExec ["RGGo_fnc_order_hold", 2]; 
 				// execVM "voiceActivatedHighCommand\orders\hold.sqf";
 				// get report of group location or locations 
 				// phase two
