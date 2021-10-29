@@ -39,8 +39,8 @@ added new array and bool - VAHCO_objectiveType/Bool - to enable management of di
 1 = secure obj1, 2 = approach obj1, 3 = secure obj2, 4 = approach obj2, 5 = move to staging area 1, 6 = move to staging area 2
 */
 
-sleep 2;
-systemChat "VAHCO via FNC ACTIVATED!!";
+sleep 1;
+// systemChat "VAHCO via FNC ACTIVATED!!";
 // FALLBACKREMAIN = false; // used for one of the order types - declared here as false 
 
 // vars and arrays initialisation

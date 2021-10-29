@@ -53,7 +53,7 @@ Hawk1 addEventHandler ["GetOut", {
 	if (isPlayer _unit) then {
 		// if (_role == "cargo") then {
 			_unit assignAsCargo Workaround;
-			format ["%1 assigned to Workaround", _unit] remoteExec ["systemChat", 0]; 
+			// format ["%1 assigned to Workaround", _unit] remoteExec ["systemChat", 0]; 
 			// [_unit, Hawk1, "unit"] remoteExec ["RGGu_fnc_utilities_unassign", _unit]; // on specific unit 
 			// format ["%1 left %2", _unit, _vehicle] remoteExec ["systemChat", -2]; 
 		// };
@@ -65,7 +65,7 @@ Hawk2 addEventHandler ["GetOut", {
 	if (isPlayer _unit) then {
 		// if (_role == "cargo") then {
 			_unit assignAsCargo Workaround;
-			format ["%1 assigned to Workaround", _unit] remoteExec ["systemChat", 0]; 
+			// format ["%1 assigned to Workaround", _unit] remoteExec ["systemChat", 0]; 
 			// [_unit, Hawk2, "server"] remoteExec ["RGGu_fnc_utilities_unassign", 2]; // only on server 
 			// format ["%1 left %2", _unit, _vehicle] remoteExec ["systemChat", -2]; 
 		};
