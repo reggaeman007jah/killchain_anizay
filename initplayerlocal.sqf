@@ -1,7 +1,8 @@
 
-["media\video\ident.ogv"] spawn BIS_fnc_playVideo;
-sleep 11;
-[1, "BLACK", 5] spawn BIS_fnc_fadeEffect;
+// ["media\video\ident.ogv"] spawn BIS_fnc_playVideo;
+// sleep 11;
+// [1, "BLACK", 5] spawn BIS_fnc_fadeEffect;
+
 // _video = ["media\video\ident.ogv"] call BIS_fnc_playVideo;
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
@@ -117,7 +118,8 @@ switch (_playerRole) do {
 		vamp = false;
 		systemChat "you have use of FNC-based voice activated systems";
 		// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
-		[] spawn RGGv_fnc_voice_VAHCO_init;
+		// [] spawn RGGv_fnc_voice_VAHCO_init;
+		[] spawn RGGv2_fnc_voice2_VAHCO_init;
 	};
 	// case "Viking 1:2 - Platoon 2IC / Padre@Viking 1": 	{ [_interfaceSize] spawn RGGr_fnc_roles_2IC; };
 	// case "Viking 1:3 - Platoon Sniper@Viking 1": 		{ [_interfaceSize] spawn RGGr_fnc_roles_sniper; };

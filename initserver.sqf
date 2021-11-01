@@ -22,7 +22,7 @@ customFlag2 setObjectTexture [0,"media\images\flag1.jpg"];
 // vnMapX setObjectTexture [0,"media\images\reloadImage2.jpg"];
 
 // this toggles PL Blufor Tinman Command 
-BLUMAN = true; // default is on 
+BLUMAN = false; 
 publicVariable "BLUMAN";
 
 // blufor marker system 

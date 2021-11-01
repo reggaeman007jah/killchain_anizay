@@ -26,6 +26,7 @@ class CfgFunctions {
 	#include "functions_Utilities\functions_Utilities.hpp"
 	// #include "functions_Vehicles\functions_Vehicles.hpp" - decide what to do with these old ones!
 	#include "functions_Voice\functions_Voice.hpp"
+	#include "functions_Voice2\functions_Voice2.hpp"
 };
 #include "AIS\Effects\BarDlg.hpp"
 //--------------------------------------------------------------
@@ -39,7 +40,7 @@ respawnButton = 1;
 // disabledAI = true;
 respawnOnStart = -1;
 
-enableDebugConsole = 2;
+enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
 // briefingName = $STR_MISSION_TITLE;

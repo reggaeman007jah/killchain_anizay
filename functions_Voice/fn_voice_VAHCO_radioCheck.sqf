@@ -76,11 +76,12 @@ if ((_inRed) && (_redzoneIndi > 0)) then {
 	{_player say2D "squelch";} remoteExec ["call",0];
 	// {playSound "commandOut"} remoteExec ["call",0];
 	systemChat 'OPTIONS:';
-	systemChat '1 fall back (or move to) on my position - send them to player location';
-	systemChat '2 fall back and (or move to) remain on my position - send them to player and always have them follow player';
-	systemChat '3 move to attack objective';
-	systemChat '4 confirm strength (numbers)';
-	systemChat '5 Hold your position';
+	systemChat '1 all groups fall back (or move to) on my position - send them to player location';
+	systemChat '2 all groups fall back and (or move to) remain on my position - send them to player and always have them follow player';
+	systemChat '3 all groups move to attack objective';
+	systemChat '4 sitrep - confirm strength (numbers)';
+	systemChat '5 all groups - Hold your position';
+	// systemChat '6 - open group order menu system';
 	// systemChat '5 confirm position (we need to get all units into one group here)';
 	VAHCO_numericalInputbool = true; 
 	VAHCO_orderSelectBool = true;

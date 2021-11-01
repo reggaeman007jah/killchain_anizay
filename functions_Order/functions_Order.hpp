@@ -5,14 +5,6 @@ class RGGo {
 	class functions_Order {
 		file = "functions_Order";
 
-		class order_fallBack {
-			Description = "This function will send units back to Tinman";
-		};
-
-		class order_fallBackRemain {
-			Description = "This function will send units back to Tinman and repeat on a cycle";
-		};
-
 		class order_attack {
 			Description = "This function will send all indifor towards the OBJ";
 		};
@@ -24,7 +16,15 @@ class RGGo {
 		class order_disembark {
 			Description = "This function will force AI out of given heli";
 		};
-		
+
+		class order_fallBack {
+			Description = "This function will send units back to Tinman";
+		};
+
+		class order_fallBackRemain {
+			Description = "This function will send units back to Tinman and repeat on a cycle";
+		};
+
 		class order_getInCargo {
 			Description = "This test function will try to move selected unit into selected heli";
 		};
@@ -43,6 +43,10 @@ class RGGo {
 
 		class order_insuranceMoveOpfor {
 			Description = "This function will push all opfor in Redzone towards their obj";
+		};
+
+		class order_moveTo {
+			Description = "This function will send move order to one selected group";
 		};
 
 		class order_sitrep {

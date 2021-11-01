@@ -82,7 +82,6 @@ if (VAHCO_numericalInputbool) then {
 	// 		VAHCO_orderSelect pushback 6;
 	// 	};
 
-
 	// }"];
 
 	// rgg_vahco_kd7 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 71) then {
