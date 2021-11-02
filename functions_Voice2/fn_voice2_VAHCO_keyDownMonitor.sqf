@@ -26,8 +26,18 @@ Added new section for order type 2 = objectives - now both lead to oscarMike.sqf
 
 // this will get all indifor groups that are in the red AO and also are on the ground (i.e. are not in transit)
 _redzoneGroups = [];
-_allGroups = allGroups select { side _x isEqualTo independent };
-systemChat format ["_allGroups: %1", _allGroups];
+_allGroupsData = allGroups select { side _x isEqualTo independent };
+systemChat format ["_allGroups: %1", _allGroupsData];
+_allGroups = [];
+
+{
+	// remove any with only 1 unit 
+	_cnt = count units _x;
+	if (_cnt > 1) then {
+		_allGroups pushBack _x;
+	};
+} forEach _allGroupsData;
+
 // {
 // 	_pos = leader _x;
 // 	_inRed = _pos inArea "redzone";
@@ -63,7 +73,8 @@ while {VAHCO2_numericalInputbool} do {
 				_iteration = 1;
 				for "_i" from 1 to _cnt do {
 					_grp = _allGroups select (_iteration - 1);
-					systemChat format ["Press %1: %2", _iteration, _grp];
+					_size = count units _grp;
+					systemChat format ["Press %1: %2 (size: %3 units)", _iteration, _grp, _size];
 					_iteration = _iteration + 1;
 				};
 				VAHCO2_orderSelectBool = false;
@@ -141,7 +152,7 @@ while {VAHCO2_numericalInputbool} do {
 				default { systemChat "switch error - confirm order"; };
 			};
 			VAHCO2_confirmBool = false;
-			[] call RGGv_fnc_voice_VAHCO_clearKeyDowns; 
+			[] call RGGv2_fnc_voice2_VAHCO_clearKeyDowns; 
 		};
 	};
 

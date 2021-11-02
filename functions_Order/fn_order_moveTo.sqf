@@ -66,22 +66,20 @@ systemChat format ["Lat: %1", _lat];
 systemChat format ["Lon: %1", _lon];
 
 _movePos = [];
-
 _parsedLat = parseNumber _lat;
 _parsedLon = parseNumber _lon;
-
 
 _movePos pushBack _parsedLat;
 _movePos pushBack _parsedLon;
 
-systemChat format ["_movePos: %1", _movePos];
+
 
 
 // sleep 2;
 
 
 _group move _movePos;
-
+systemChat format ["Group %1 is moving to grid %2", _group, _movePos];
 
 
 // systemchat str _lan;

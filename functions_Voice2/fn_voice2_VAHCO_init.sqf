@@ -40,7 +40,7 @@ added new array and bool - VAHCO_objectiveType/Bool - to enable management of di
 */
 
 sleep 1;
-systemChat "VAHCO2 via FNC ACTIVATED!!";
+systemChat "VAHCO2 ACTIVATED!!";
 // FALLBACKREMAIN = false; // used for one of the order types - declared here as false 
 
 // vars and arrays initialisation

@@ -17,12 +17,12 @@ _ehVAHCO_Remove3 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_va
 _ehVAHCO_Remove4 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd3];
 _ehVAHCO_Remove5 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd4];
 _ehVAHCO_Remove6 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd5];
-// _ehVAHCO_Remove7 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd6];
-// _ehVAHCO_Remove8 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd7];
-// _ehVAHCO_Remove9 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd8];
-// _ehVAHCO_Remove10	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd9];
+_ehVAHCO_Remove7 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd6];
+_ehVAHCO_Remove8 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd7];
+_ehVAHCO_Remove9 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd8];
+_ehVAHCO_Remove10	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd9];
 
-VAHCO_numericalInputbool = false;
+VAHCO2_numericalInputbool = false;
 
 // sleep 3; // quick visual validation of accepted order 
 // 1 cutRsc ["default","PLAIN"];
@@ -33,4 +33,4 @@ VAHCO_numericalInputbool = false;
 vamp = false;
 
 // execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
-[] spawn RGGv_fnc_voice_VAHCO_init; 
+[] spawn RGGv2_fnc_voice2_VAHCO_init; 
