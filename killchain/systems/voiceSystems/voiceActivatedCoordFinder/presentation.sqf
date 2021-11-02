@@ -15,7 +15,7 @@ I need to change the name of this file, to have VACF prefix, but need to check f
 
 _lan = _this select 0;
 _lon = _this select 1;
-_stringTestLan	= [_lan] joinString "";
+_stringTestLan = [_lan] joinString "";
 _countTestLan = count _stringTestLan;
 _stringTestLon	= [_lon] joinString "";
 _countTestLon = count _stringTestLon;

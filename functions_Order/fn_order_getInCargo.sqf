@@ -9,10 +9,11 @@ Takes:
 
 */
 
+params ["_unit", "_heli", "_cargoSpace"];
 systemChat "DEBUG / GET_IN_FNC - Running FNC";
-_unit = _this select 0;
-_heli = _this select 1;
-_cargoSpace = _this select 2;
+// _unit = _this select 0;
+// _heli = _this select 1;
+// _cargoSpace = _this select 2;
 
 _unit enableAI "move";
 sleep 2;

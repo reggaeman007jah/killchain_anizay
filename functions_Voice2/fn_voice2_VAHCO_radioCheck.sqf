@@ -1,3 +1,6 @@
+/*
+This function is envoked following activation (keypress 3)
+*/
 
 vamp = true;
 _ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vahco2_Activate];
@@ -6,9 +9,11 @@ systemChat 'VAHC2 ACTIVATED';
 {_player say2D "squelch";} remoteExec ["call", 0];
 // {playSound "commandOut"} remoteExec ["call",0];
 systemChat 'OPTIONS:';
-systemChat '1 - Select a Group for move order';
-systemChat '2 - Merge Order TBC';
-systemChat '2 - Extract Order TBC';
+systemChat '1 - Issue a move order';
+systemChat '2 - Issue a formation order';
+systemChat '3 - TBC - / Merge Order / - TBC';
+systemChat '4 - TBC - / Extract Order / - TBC';
+
 VAHCO2_numericalInputbool = true; 
 VAHCO2_orderSelectBool = true;
 

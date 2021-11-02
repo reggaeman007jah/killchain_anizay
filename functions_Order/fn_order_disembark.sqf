@@ -2,7 +2,9 @@
 Forces AI out of heli 
 */
 
-_player = _this select 0;
+params ["_player"];
+// _player = _this select 0;
+
 _vic = vehicle _player;
 _cargo = fullCrew [_vic, "CARGO"];
 // systemchat str _cargo;

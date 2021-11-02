@@ -7,7 +7,7 @@ clears all currently assigned key down event handlers
 lastly, turns VAMP back to 'active (false)'
 
 notes:
-add CANCEL!
+add CANCEL! - test this, as I think this is already done in the main listener ..?
 add RSC removals 
 */
 
@@ -32,5 +32,4 @@ VAHCO2_numericalInputbool = false;
 
 vamp = false;
 
-// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
 [] spawn RGGv2_fnc_voice2_VAHCO_init; 

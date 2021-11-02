@@ -25,6 +25,10 @@ class RGGo {
 			Description = "This function will send units back to Tinman and repeat on a cycle";
 		};
 
+		class order_formation {
+			Description = "This function will set formation of given group";
+		};
+
 		class order_getInCargo {
 			Description = "This test function will try to move selected unit into selected heli";
 		};

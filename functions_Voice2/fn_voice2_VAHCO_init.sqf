@@ -1,7 +1,39 @@
 /*
+This function declares initial arrays and bools, and sets up keyPress (3) to activate the system 
+*/
+
+sleep 1;
+systemChat "VAHCO2 ACTIVATED!!";
+// FALLBACKREMAIN = false; // used for one of the order types - declared here as false 
+
+// vars and arrays initialisation
+VAHCO2_numericalInputbool	= false; 
+
+VAHCO2_orderSelectBool		= false;
+VAHCO2_orderSelect			= [];	
+
+VAHCO2_groupSelectBool		= false;
+VAHCO2_groupSelect			= [];
+
+VAHCO2_gridSelectBool		= false;
+VAHCO2_gridSelect			= [];	
+
+VAHCO2_formationSelectBool	= false;
+VAHCO2_formationSelect		= [];
+
+VAHCO2_confirmBool			= false;
+VAHCO2_confirm				= [];
+
+// key = "numpad 3"
+rgg_vahco2_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 81)) then {
+	[] call RGGv2_fnc_voice2_VAHCO_radioCheck;
+}"];
+
+
+/*
 from:
-to:			voiceactivatedhighcommand\VAHCO_keyDowns.sqf
-to: 		voiceactivatedhighcommand\VAHCO_keyDownMonitor.sqf
+to:			
+to: 		
 
 new purpose:
 enables an indifor player to issue the following commands to indifor 
@@ -39,38 +71,10 @@ added new array and bool - VAHCO_objectiveType/Bool - to enable management of di
 1 = secure obj1, 2 = approach obj1, 3 = secure obj2, 4 = approach obj2, 5 = move to staging area 1, 6 = move to staging area 2
 */
 
-sleep 1;
-systemChat "VAHCO2 ACTIVATED!!";
-// FALLBACKREMAIN = false; // used for one of the order types - declared here as false 
-
-// vars and arrays initialisation
-VAHCO2_numericalInputbool	= false; 
-
-VAHCO2_orderSelectBool		= false;
-VAHCO2_orderSelect			= [];	
-
-VAHCO2_groupSelectBool		= false;
-VAHCO2_groupSelect			= [];
-
-VAHCO2_gridSelectBool		= false;
-VAHCO2_gridSelect			= [];	
-
-VAHCO2_confirmBool			= false;
-VAHCO2_confirm				= [];
-
-// key = "numpad 3"
-rgg_vahco2_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 81)) then {
-
-	[] call RGGv2_fnc_voice2_VAHCO_radioCheck;
-
-}"];
-
-// execVM 'voiceActivatedHighCommand\radioCheck.sqf';
-
-
- 
-
 /*
+
+// notes - 
+
 vamp = true;
 _ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_vahco_Activate];
 systemChat 'VAHC ACTIVATED';
