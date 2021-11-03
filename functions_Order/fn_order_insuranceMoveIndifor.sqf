@@ -1,7 +1,7 @@
 // --- general indifor push order --- //
 
 // _objPos = _this select 0; // objective point 
-_params ["_objPos"];
+params ["_objPos"];
 
 systemChat "debug - indifor insurance move order";
 _indi = [];

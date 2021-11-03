@@ -49,8 +49,12 @@ class RGGo {
 			Description = "This function will push all opfor in Redzone towards their obj";
 		};
 
+		class order_moveBasic {
+			Description = "This function will send move order to one selected group - dir and dist";
+		};
+
 		class order_moveTo {
-			Description = "This function will send move order to one selected group";
+			Description = "This function will send move order to one selected group - grid";
 		};
 
 		class order_sitrep {

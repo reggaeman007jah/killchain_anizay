@@ -9,10 +9,11 @@ systemChat 'VAHC2 ACTIVATED';
 {_player say2D "squelch";} remoteExec ["call", 0];
 // {playSound "commandOut"} remoteExec ["call",0];
 systemChat 'OPTIONS:';
-systemChat '1 - Issue a move order';
-systemChat '2 - Issue a formation order';
-systemChat '3 - TBC - / Merge Order / - TBC';
-systemChat '4 - TBC - / Extract Order / - TBC';
+systemChat '1 - Issue a Grid Move Order';
+systemChat '2 - Issue a Basic Move Order';
+systemChat '3 - Issue a formation order';
+systemChat '4 - TBC - / Merge Order / - TBC';
+systemChat '5 - TBC - / Extract Order / - TBC';
 
 VAHCO2_numericalInputbool = true; 
 VAHCO2_orderSelectBool = true;

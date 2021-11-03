@@ -39,6 +39,7 @@ if (KILLCHAINISLIVE) then {
 				deleteMarker _stampToString;
 				_tempMarker = createMarker [_stampToString, _leaderPos];
 				_tempMarker setMarkerType "n_inf";
+				_tempMarker setMarkerText _stampToString;
 			} else {
 				_stampToString = str _x;
 				deleteMarker _stampToString;
@@ -56,6 +57,7 @@ if (KILLCHAINISLIVE) then {
 					deleteMarker _stampToString;
 					_tempMarker = createMarker [_stampToString, _leaderPos];
 					_tempMarker setMarkerType "b_inf";
+					
 				};			
 			} else {
 				_stampToString = str _x;

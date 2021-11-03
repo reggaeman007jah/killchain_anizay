@@ -18,6 +18,12 @@ VAHCO2_groupSelect			= [];
 VAHCO2_gridSelectBool		= false;
 VAHCO2_gridSelect			= [];	
 
+VAHCO2_directionSelectBool	= false;
+VAHCO2_directionSelect		= [];
+
+VAHCO2_distanceSelectBool	= false;
+VAHCO2_distanceSelect		= [];
+
 VAHCO2_formationSelectBool	= false;
 VAHCO2_formationSelect		= [];
 

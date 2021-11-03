@@ -176,7 +176,7 @@ while {true} do {
 							_chance = selectRandom [1,2,3];
 							if (_chance == 1) then {
 								_randomPosition = selectRandom _positions; 
-								_opGroup = createGroup [independent, true]; 
+								_opGroup = createGroup [civilian, true]; 
 								_class = selectRandom _civvieClasses;
 								_unit2 = _opGroup createUnit [_class, _randomPosition, [], 0.1, "none"]; 
 								_unit2 addMPEventHandler ["MPKilled", {
