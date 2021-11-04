@@ -11,9 +11,16 @@ systemChat 'VAHC2 ACTIVATED';
 systemChat 'OPTIONS:';
 systemChat '1 - Issue a Grid Move Order';
 systemChat '2 - Issue a Basic Move Order';
-systemChat '3 - Issue a formation order';
-systemChat '4 - TBC - / Merge Order / - TBC';
-systemChat '5 - TBC - / Extract Order / - TBC';
+systemChat '3 - Issue a Formation Order';
+systemChat '4 - Issue a Merge Order';
+
+/*
+systemChat '5 - TBC - / Extract Request / - TBC'; // triggered by badly damaged AI
+systemChat '6 - TBC - / Rearm Request / - TBC'; // triggered by low ammo counts 
+systemChat '6 - TBC - / Resupply Request / - TBC'; // triggered by civilian requasts channeled via AI troops 
+systemChat '6 - TBC - / Scouting Request / - TBC'; // needed by AI before they move through uncertain terratory
+systemChat '6 - TBC - / Reinforcement Request / - TBC'; // requested by AI when their numbers are low (needs threshold)
+*/
 
 VAHCO2_numericalInputbool = true; 
 VAHCO2_orderSelectBool = true;

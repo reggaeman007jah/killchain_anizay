@@ -49,6 +49,10 @@ class RGGo {
 			Description = "This function will push all opfor in Redzone towards their obj";
 		};
 
+		class order_merge {
+			Description = "This function will merge group x into group y";
+		};
+
 		class order_moveBasic {
 			Description = "This function will send move order to one selected group - dir and dist";
 		};

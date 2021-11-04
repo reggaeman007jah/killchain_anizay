@@ -27,6 +27,9 @@ VAHCO2_distanceSelect		= [];
 VAHCO2_formationSelectBool	= false;
 VAHCO2_formationSelect		= [];
 
+VAHCO2_mergeSelectBool		= false;
+VAHCO2_mergeSelect			= [];
+
 VAHCO2_confirmBool			= false;
 VAHCO2_confirm				= [];
 

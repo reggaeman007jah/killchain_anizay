@@ -44,17 +44,19 @@ don't forget to remove all active keyDown EHs and active bools including vamp
 // 	systemChat "no groups to control";
 // };
 
-_chosenGroup = [];
+_chosenGroup = []; // anchor data for main group in question, in logic tree 
+_mergeToGroup = []; // to hold a group that will take over a given group
 _cnt = count _allGroups; // currently excluding single-unit groups 
 
 while {VAHCO2_numericalInputbool} do {
 
 	_cntOrderSelect = count VAHCO2_orderSelect; // expect 1 
-	_cntGroupSelect = count VAHCO2_groupSelect; // expect 1 
+	_cntGroupSelect = count VAHCO2_groupSelect; // expect 2 
 	_cntGridSelect = count VAHCO2_gridSelect; // expect 8 
 	_cntDirSelect = count VAHCO2_directionSelect; // expect 1 
 	_cntDistSelect = count VAHCO2_distanceSelect; // expect 1 
 	_cntFormationSelect = count VAHCO2_formationSelect; // expect 1
+	_cntMergeSelect = count VAHCO2_mergeSelect; // expect 2
 
 	_cntConfirm = count VAHCO2_confirm; // expect 1 
 
@@ -64,7 +66,7 @@ while {VAHCO2_numericalInputbool} do {
 			_orderType = VAHCO2_orderSelect select 0; 
 			switch (_orderType) do {
 				case 1: { 
-					systemChat "you have selected Grid Move Order - now select group to move:";
+					systemChat "Grid Move Order - Select Group:";
 					// here you are choosing a group, from 1-8 - we cannot have more than 8 groups in-play in this system, so need to think abuot merging or limiting AI indi groups somehow 
 					// so we need to associate the number here with the group - so the player must be able to see the group, and the number 
 					_iteration = 1;
@@ -78,7 +80,7 @@ while {VAHCO2_numericalInputbool} do {
 					VAHCO2_groupSelectBool = true;
 				};
 				case 2: { 
-					systemChat "you have selected Basic Move Order - now select group:";
+					systemChat "Basic Move Order - Select Group:";
 					_iteration = 1;
 					for "_i" from 1 to _cnt do {
 						_grp = _allGroups select (_iteration - 1);
@@ -90,7 +92,7 @@ while {VAHCO2_numericalInputbool} do {
 					VAHCO2_groupSelectBool = true;
 				};
 				case 3: { 
-					systemChat "you have selected group formation order system - now select group:";
+					systemChat "Formation Order - Select Group:";
 					_iteration = 1;
 					for "_i" from 1 to _cnt do {
 						_grp = _allGroups select (_iteration - 1);
@@ -98,6 +100,19 @@ while {VAHCO2_numericalInputbool} do {
 						systemChat format ["%1 (size: %2 units)", _grp, _size];
 						_iteration = _iteration + 1;
 					};
+					VAHCO2_orderSelectBool = false;
+					VAHCO2_groupSelectBool = true;
+				};
+				case 4: { 
+					systemChat "Merge Order - Select Group:";
+					_iteration = 1;
+					for "_i" from 1 to _cnt do {
+						_grp = _allGroups select (_iteration - 1);
+						_size = count units _grp;
+						systemChat format ["%1 (size: %2 units)", _grp, _size];
+						_iteration = _iteration + 1;
+					};
+					// hang on - why not forEach the above ?? Maybe bc I was removing single unit groups? Dunno, but in fresh light this looks too complex for what it is trying to do 
 					VAHCO2_orderSelectBool = false;
 					VAHCO2_groupSelectBool = true;
 				};
@@ -118,29 +133,13 @@ while {VAHCO2_numericalInputbool} do {
 				_name = str _x;
 				_nameX = _name select [8,1];
 				_nameY = _name select [10,1];
-				systemChat format ["_nameX: %1 /// _nameY: %2", _nameX, _nameY];
+				// systemChat format ["_nameX: %1 /// _nameY: %2", _nameX, _nameY];
 	
 				if ((_nameX == _groupX) && (_nameY == _groupY)) then {
-					systemChat format ["You have selected Group %1:%2", _nameX, _nameY];
+					systemChat format ["Group Selected: %1-%2", _nameX, _nameY];
 					_chosenGroup pushBack _x;
-				} else {
-					systemChat "no match";
 				};
 			} forEach _allGroups;
-
-
-
-			// switch ( _group ) do {
-			// 	case 1: { systemChat format ["You have chosen: %1", _allGroups select 0]; _chosenGroup pushBack (_allGroups select 0) };
-			// 	case 2: { systemChat format ["You have chosen: %1", _allGroups select 1]; _chosenGroup pushBack (_allGroups select 1) };
-			// 	case 3: { systemChat format ["You have chosen: %1", _allGroups select 2]; _chosenGroup pushBack (_allGroups select 2) };
-			// 	case 4: { systemChat format ["You have chosen: %1", _allGroups select 3]; _chosenGroup pushBack (_allGroups select 3) };
-			// 	case 5: { systemChat format ["You have chosen: %1", _allGroups select 4]; _chosenGroup pushBack (_allGroups select 4) };
-			// 	case 6: { systemChat format ["You have chosen: %1", _allGroups select 5]; _chosenGroup pushBack (_allGroups select 5) };
-			// 	case 7: { systemChat format ["You have chosen: %1", _allGroups select 6]; _chosenGroup pushBack (_allGroups select 6) };
-			// 	case 8: { systemChat format ["You have chosen: %1", _allGroups select 7]; _chosenGroup pushBack (_allGroups select 7) };
-			// 	default { systemChat "switch error - group select" };
-			// };
 
 			// here we switch the order type 
 			_orderType = VAHCO2_orderSelect select 0;
@@ -175,6 +174,11 @@ while {VAHCO2_numericalInputbool} do {
 					systemChat "8 - Diamond";
 					VAHCO2_groupSelectBool = false;
 					VAHCO2_formationSelectBool = true;
+				};
+				case 4: { 
+					systemChat "Now confirm group to merge with";
+					VAHCO2_groupSelectBool = false;
+					VAHCO2_mergeSelectBool = true;
 				};
 				default { systemChat "ERROR - switch order type" };
 			};
@@ -232,6 +236,32 @@ while {VAHCO2_numericalInputbool} do {
 			systemChat format ["Formation Code Selected: %1", VAHCO2_formationSelect];
 			systemChat "Now confirm (1) or cancel (2)";
 			VAHCO2_formationSelectBool = false;
+			VAHCO2_confirmBool = true;
+		};
+	};
+
+
+	if (VAHCO2_mergeSelectBool) then {
+		if (_cntMergeSelect == 2) then {
+			// here, you've chosen a group by entering two numbers 
+			// e.g. entering 3 and 1 should look for a group with the designation 3:1 
+			_groupX = str (VAHCO2_mergeSelect select 0); // first data 
+			_groupY = str (VAHCO2_mergeSelect select 1); // second data 
+			systemChat format ["Target Group: %1 - %2", _groupX, _groupY];
+			{
+				// first convert group name to string so you can validate specific characters 
+				_name = str _x;
+				_nameX = _name select [8,1];
+				_nameY = _name select [10,1];
+				// systemChat format ["_nameX: %1 /// _nameY: %2", _nameX, _nameY];
+				if ((_nameX == _groupX) && (_nameY == _groupY)) then {
+					systemChat format ["Target Group Selected: %1-%2", _nameX, _nameY];
+					_mergeToGroup pushBack _x;
+				};
+			} forEach _allGroups;
+
+			systemChat "Now confirm (1) or cancel (2)";
+			VAHCO2_mergeSelectBool = false;
 			VAHCO2_confirmBool = true;
 		};
 	};
@@ -327,6 +357,25 @@ while {VAHCO2_numericalInputbool} do {
 						};
 						case 2: {
 							systemchat "formation order cancelled"; 
+						};
+						default { systemChat "switch error - confirm order"; };
+					};
+					VAHCO2_confirmBool = false;
+					[] call RGGv2_fnc_voice2_VAHCO_clearKeyDowns; 
+				};
+				case 4: { // merge order 
+					// so here, you've confirmed or cancelled  
+					_res = VAHCO2_confirm select 0;
+					switch (_res) do {
+						case 1: {
+							systemChat "merge order confirmed"; 
+							// _num = VAHCO2_groupSelect select 0;
+							_group = _chosenGroup select 0;
+							_groupTo = _mergeToGroup select 0;
+							[_group, _groupTo] call RGGo_fnc_order_merge;
+						};
+						case 2: {
+							systemchat "merge order cancelled"; 
 						};
 						default { systemChat "switch error - confirm order"; };
 					};

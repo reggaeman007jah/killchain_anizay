@@ -30,6 +30,9 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 1;
 		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 1;
+		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 1;
 		};
@@ -54,6 +57,9 @@ if (VAHCO2_numericalInputbool) then {
 		};
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 2;
+		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 2;
 		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 2;
@@ -80,6 +86,9 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 3;
 		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 3;
+		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 3;
 		};
@@ -96,8 +105,14 @@ if (VAHCO2_numericalInputbool) then {
 
 	rgg_vahco_kd4 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 75) then {
 		systemChat 'VAHCO - 4';
+		if (VAHCO2_orderSelectBool) then {
+			VAHCO2_orderSelect pushback 4;
+		};
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 4;
+		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 4;
 		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 4;
@@ -118,6 +133,9 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 5;
 		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 5;
+		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 5;
 		};
@@ -136,6 +154,9 @@ if (VAHCO2_numericalInputbool) then {
 		systemChat 'VAHCO - 6';
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 6;
+		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 6;
 		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 6;
@@ -156,6 +177,9 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 7;
 		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 7;
+		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 7;
 		};
@@ -174,6 +198,9 @@ if (VAHCO2_numericalInputbool) then {
 		systemChat 'VAHCO - 8';
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 8;
+		};
+		if (VAHCO2_mergeSelectBool) then {
+			VAHCO2_mergeSelect pushback 8;
 		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 8;
