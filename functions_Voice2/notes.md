@@ -113,3 +113,7 @@ validation should be that both teams are close to eachother - within say 100m
 
 // embed with
 this will take a group, and take a player, and have the group follow the player around as a meatshield
+
+// order a team to follow an MSR
+
+// order a team to clear an area by searching all buildings
