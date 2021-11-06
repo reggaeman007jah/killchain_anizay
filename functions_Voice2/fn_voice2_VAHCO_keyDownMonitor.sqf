@@ -298,7 +298,8 @@ while {VAHCO2_numericalInputbool} do {
 							_lon pushBack (VAHCO2_gridSelect select 9);
 							_movePos pushBack _lat;
 							_movePos pushBack _lon;
-							[_chosenGroup, _movePos] call RGGo_fnc_order_moveTo;
+							// [_chosenGroup, _movePos] call RGGo_fnc_order_moveTo;
+							[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 2];
 						};
 						case 2: {
 							systemchat "grid order cancelled"; 
@@ -336,7 +337,8 @@ while {VAHCO2_numericalInputbool} do {
 							if (_distEntry == 0) then {
 								_dist = 1000;
 							};
-							[_chosenGroup, _dir, _dist] call RGGo_fnc_order_moveBasic;
+							// [_chosenGroup, _dir, _dist] call RGGo_fnc_order_moveBasic; // does not work in MP - as local I guess 
+							[_chosenGroup, _dir, _dist] remoteExec ["RGGo_fnc_order_moveBasic", 2];
 						};
 						case 2: {
 							systemchat "basic move order cancelled"; 
@@ -356,7 +358,8 @@ while {VAHCO2_numericalInputbool} do {
 							// _num = VAHCO2_groupSelect select 0;
 							_group = _chosenGroup select 0;
 							_formCode = VAHCO2_formationSelect select 0;
-							[_chosenGroup, _formCode] call RGGo_fnc_order_formation;
+							// [_chosenGroup, _formCode] call RGGo_fnc_order_formation;
+							[_chosenGroup, _formCode] remoteExec ["RGGo_fnc_order_formation", 2];
 						};
 						case 2: {
 							systemchat "formation order cancelled"; 
@@ -375,7 +378,8 @@ while {VAHCO2_numericalInputbool} do {
 							// _num = VAHCO2_groupSelect select 0;
 							_group = _chosenGroup select 0;
 							_groupTo = _mergeToGroup select 0;
-							[_group, _groupTo] call RGGo_fnc_order_merge;
+							// [_group, _groupTo] call RGGo_fnc_order_merge;
+							[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", 2];
 						};
 						case 2: {
 							systemchat "merge order cancelled"; 
