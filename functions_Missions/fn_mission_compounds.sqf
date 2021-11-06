@@ -248,7 +248,7 @@ while {TRUE} do {
 		_canSpawn = false;
 	};
 	
-	sleep 30; // when ready, make this 120 
+	sleep 120; 
 };
 
 /*

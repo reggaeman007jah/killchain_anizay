@@ -7,6 +7,10 @@
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 
+// remoteExec ["RGGc_fnc_count_indiforAmmo", -2];  // execute only on server 
+
+// [] spawn RGGc_fnc_count_indiforUnitAmmo; - needs work yes!
+
 // remove shift map clicks 
 // onMapSingleClick {_shift};
 
@@ -118,7 +122,7 @@ switch (_playerRole) do {
 		vamp = false;
 		systemChat "you have use of FNC-based voice activated systems";
 		// execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
-		// [] spawn RGGv_fnc_voice_VAHCO_init;
+		[] spawn RGGv_fnc_voice_VAHCO_init;
 		[] spawn RGGv2_fnc_voice2_VAHCO_init;
 	};
 	// case "Viking 1:2 - Platoon 2IC / Padre@Viking 1": 	{ [_interfaceSize] spawn RGGr_fnc_roles_2IC; };

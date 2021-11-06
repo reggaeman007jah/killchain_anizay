@@ -20,7 +20,7 @@ sleep 30;
 
 while {KILLCHAINISLIVE} do {
 	
-	_cycles = selectRandom [5,6,7];
+	_cycles = selectRandom [3,4,5,6,7];
 
 	// here we try to simulate periods of attack and periods of non-attack 
 	for "_i" from 1 to _cycles do {

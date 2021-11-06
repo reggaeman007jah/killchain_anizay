@@ -621,7 +621,7 @@ while {_activateCheck} do {
 		_activateCheck = false;
 		// "progression / hold completed" remoteExec ["systemChat", 0, true];
 		["PATROL IS MOVING"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
-		execVM "media\sounds\success.sqf";	
+		execVM "media\sounds\patrolMoving.sqf";	
 		// format ["Debug - NOTE: _cnt == 0", _cnt] remoteExec ["systemChat", 0];
 	};
 };
@@ -700,14 +700,14 @@ allunits select {side _x == resistance && vehicle _x isKindOf "StaticWeapon" }
 */
 
 
-{
-	_randomDir = selectRandom [270, 310, 00, 50, 90];
-	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
-	_endPoint1 = _objPos getPos [_randomDist,_randomDir];
-	sleep 1;
-	_x setBehaviour "COMBAT";
-	_x doMove _endPoint1;
-} forEach _indi;
+// {
+// 	_randomDir = selectRandom [270, 310, 00, 50, 90];
+// 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
+// 	_endPoint1 = _objPos getPos [_randomDist,_randomDir];
+// 	sleep 1;
+// 	_x setBehaviour "COMBAT";
+// 	_x doMove _endPoint1;
+// } forEach _indi;
 
 // catchall opfor move at end of cycle - might lead to pincer attacks unexpectedly ;)
 _opfor = [];
@@ -726,7 +726,7 @@ _opfor = [];
 
 // cleanup
 { deleteVehicle _x } forEach allDead;
-systemChat "RUNNING CLEANUP - check works from Cycle Script ";
+// systemChat "RUNNING CLEANUP - check works from Cycle Script ";
 
 // determine whether another camp obj or final obj 
 // if (patrolPointsTaken <= 5) then {
@@ -735,7 +735,7 @@ if (patrolPointsTaken <= 6) then {
 } else {
 	[_anchor, _objPos] execVM "killChain\mission\patrolFinal.sqf";	
 };
-// here I am changing the points needed from 6 to 4
+
 
 
 

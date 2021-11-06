@@ -333,6 +333,9 @@ while {VAHCO2_numericalInputbool} do {
 							// get dist 
 							_distEntry = VAHCO2_distanceSelect select 0;
 							_dist = _distEntry * 100;
+							if (_distEntry == 0) then {
+								_dist = 1000;
+							};
 							[_chosenGroup, _dir, _dist] call RGGo_fnc_order_moveBasic;
 						};
 						case 2: {

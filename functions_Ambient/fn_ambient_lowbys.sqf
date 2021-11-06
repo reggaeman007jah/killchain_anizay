@@ -36,11 +36,14 @@ while {true} do {
 	} forEach allPlayers;
 	_chosenOne = selectRandom _candidates;
 	
-	_anchor = getPos _chosenOne;
-	_startPos = _anchor getpos [2500,_from];
-	_endPos = _anchor getPos [2500,_to];
-	// systemChat format ["debug - running lowbys from %1 to %2", _from, _to];
-	[_startPos, _endPos, 10, "FULL", _chosenHeli, west] call BIS_fnc_ambientFlyby;
+	if ((count _candidates) > 0) then {
+		_anchor = getPos _chosenOne;
+		_startPos = _anchor getpos [2500,_from];
+		_endPos = _anchor getPos [2500,_to];
+		// systemChat format ["debug - running lowbys from %1 to %2", _from, _to];
+		[_startPos, _endPos, 10, "FULL", _chosenHeli, west] call BIS_fnc_ambientFlyby;
+	};
+
 	// sleep 1800;
 	sleep 300;
 

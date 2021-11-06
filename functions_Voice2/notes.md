@@ -110,3 +110,6 @@ rear team moves up, front team holds ground
 then when moving team is in place, swap over
 you need two teams, a start point an objective point, and distance to bound (30m eg)
 validation should be that both teams are close to eachother - within say 100m
+
+// embed with
+this will take a group, and take a player, and have the group follow the player around as a meatshield

@@ -3,6 +3,7 @@
 // remoteExec ["RGGa_fnc_ambient_timeManager", 2];  // execute only on server 
 remoteExec ["RGGa_fnc_ambient_timeManager_v2", 2];  // execute only on server 
 
+
 KILLCHAINISLIVE = false;
 
 ["Initialize", [true]] call BIS_fnc_dynamicGroups;
