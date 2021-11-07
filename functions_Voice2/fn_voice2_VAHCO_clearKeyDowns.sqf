@@ -21,6 +21,7 @@ _ehVAHCO_Remove7 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_va
 _ehVAHCO_Remove8 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd7];
 _ehVAHCO_Remove9 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd8];
 _ehVAHCO_Remove10	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd9];
+_ehVAHCO_RemoveC	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_cnl];
 
 VAHCO2_numericalInputbool = false;
 

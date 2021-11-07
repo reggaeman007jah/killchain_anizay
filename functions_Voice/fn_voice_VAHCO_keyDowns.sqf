@@ -8,6 +8,9 @@ the array the data is pushed into is dependent on the current state (bool) - thi
 
 notes:
 need to add a cancel to this!
+
+		[] spawn RGGv_fnc_voice_VAHCO_init;
+		removed from rgg_vahco_cnl block 
 */
 
 if (VAHCO_numericalInputbool) then {
@@ -17,7 +20,7 @@ if (VAHCO_numericalInputbool) then {
 		[] call RGGv_fnc_voice_VAHCO_clearKeyDowns;
 		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vahco_cnl];
 		VAHCO_numericalInputbool = false;
-		[] spawn RGGv_fnc_voice_VAHCO_init;
+
 	}"];
 
 	rgg_vahco_kd0 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
