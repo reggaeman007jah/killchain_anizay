@@ -29,6 +29,9 @@ class RGGa {
 		class ambient_lowBys {
 			Description = "This function creates random low fast-moving helis over random players";
 		};
+		class ambient_mortarsCreeping {
+			Description = "This function slowly homes in on camping players";
+		};
 		class ambient_timeManager {
 			Description = "This function manages all time settings, day night etc";
 		};
