@@ -304,12 +304,16 @@ while {VAHCO2_numericalInputbool} do {
 							_movePos pushBack _lat;
 							_movePos pushBack _lon;
 
-							if (_clientID == 0) then {
-								// [_chosenGroup, _movePos] call RGGo_fnc_order_moveTo;
-								[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 0];
-							} else {
-								[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 2];
-							};
+							// if (_clientID == 0) then {
+							// 	// [_chosenGroup, _movePos] call RGGo_fnc_order_moveTo;
+							// 	[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 0];
+							// } else {
+							// 	[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 2];
+							// };
+
+							// test 
+							[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", _clientID];
+
 							
 						};
 						case 2: {
@@ -351,12 +355,15 @@ while {VAHCO2_numericalInputbool} do {
 								_dist = 1000;
 							};
 
-							if (_clientID == 0) then {
-								// [_chosenGroup, _dir, _dist] call RGGo_fnc_order_moveBasic; 
-								[_chosenGroup, _dir, _dist] remoteExec ["RGGo_fnc_order_moveBasic", 0];
-							} else {
-								[_chosenGroup, _dir, _dist] remoteExec ["RGGo_fnc_order_moveBasic", 2];
-							};
+							// if (_clientID == 0) then {
+							// 	// [_chosenGroup, _dir, _dist] call RGGo_fnc_order_moveBasic; 
+							// 	[_chosenGroup, _dir, _dist] remoteExec ["RGGo_fnc_order_moveBasic", 0];
+							// } else {
+							// 	[_chosenGroup, _dir, _dist] remoteExec ["RGGo_fnc_order_moveBasic", 2];
+							// };
+
+							// test 
+							[_chosenGroup, _dir, _dist] remoteExec ["RGGo_fnc_order_moveBasic", _clientID];
 
 						};
 						case 2: {
@@ -380,12 +387,15 @@ while {VAHCO2_numericalInputbool} do {
 							systemChat format ["OWNER: -------------- %1", _clientID];
 							_formCode = VAHCO2_formationSelect select 0;
 
-							if (_clientID == 0) then {
-								// [_chosenGroup, _formCode] call RGGo_fnc_order_formation;
-								[_chosenGroup, _formCode] remoteExec ["RGGo_fnc_order_formation", 0];
-							} else {
-								[_chosenGroup, _formCode] remoteExec ["RGGo_fnc_order_formation", 2];
-							};
+							// if (_clientID == 0) then {
+							// 	// [_chosenGroup, _formCode] call RGGo_fnc_order_formation;
+							// 	[_chosenGroup, _formCode] remoteExec ["RGGo_fnc_order_formation", 0];
+							// } else {
+							// 	[_chosenGroup, _formCode] remoteExec ["RGGo_fnc_order_formation", 2];
+							// };
+
+							// test 
+							[_chosenGroup, _formCode] remoteExec ["RGGo_fnc_order_formation", _clientID];
 
 						};
 						case 2: {
@@ -408,13 +418,17 @@ while {VAHCO2_numericalInputbool} do {
 							systemChat format ["OWNER: -------------- %1", _clientID];
 							_groupTo = _mergeToGroup select 0;
 
-							if (_clientID == 0) then {
-								// [_group, _groupTo] call RGGo_fnc_order_merge;
-								[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", 0];
-							} else {
-								[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", 2];
-							};
-							
+							// if (_clientID == 0) then {
+							// 	// [_group, _groupTo] call RGGo_fnc_order_merge;
+							// 	[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", 0];
+							// } else {
+							// 	[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", 2];
+							// };
+
+							// test 
+							[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", _clientID];
+
+
 						};
 						case 2: {
 							systemchat "merge order cancelled"; 

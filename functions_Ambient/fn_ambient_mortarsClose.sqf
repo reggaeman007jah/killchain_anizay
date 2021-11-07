@@ -29,126 +29,132 @@ while {KILLCHAINISLIVE} do {
 		// systemChat format ["DEBUG - SAFE ARTY ITERATION %1 OF %2 RUNNING", _i, _cycles];
 
 		// get all players 
-		_dataStore = [];
+		_data = [];
 		{
-			_dataStore pushback _x;
+			_data pushback _x;
 		} forEach allPlayers;
 
-		// choose one at random 
-		_randomPlayer = selectRandom _dataStore;
+		_cnt = count _data;
 
-		// debug 
-		// systemChat format ["random player for safeMortars: %1", _randomPlayer];
+		if (_cnt > 0) then {
+		
+			// choose one at random 
+			_randomPlayer = selectRandom _data;
 
-		// getPos anchor for calcs 
-		_randPlayerPos = getPos _randomPlayer;
+			// debug 
+			// systemChat format ["random player for safeMortars: %1", _randomPlayer];
 
-		// progresses based on player being in red zone 
-		if (_randomPlayer inArea "redzone") then { 
-			
-			// init sleep - might not need this 
-			// sleep 30;
+			// getPos anchor for calcs 
+			_randPlayerPos = getPos _randomPlayer;
 
-			// decide if GBU (1) or grouping/cluster (2) 
-			// _rnd = selectRandom [1,2]; // prod line 
-			_rnd = selectRandom [2]; // debug line for testing exitWith in spread 
-
-			// GBU selected 
-			if (_rnd == 1) then {
-				// i dont want to lose any cycles being implemented due to presence of units
-				// need a way to re-run the iteration until I get a free space to explode ord 
-				// so use a local bool to manage any re-runs 
+			// progresses based on player being in red zone 
+			if (_randomPlayer inArea "redzone") then { 
 				
-				_hasFired = false;
-				while {!_hasFired} do {
+				// init sleep - might not need this 
+				// sleep 30;
 
-					// systemChat "DEBUG - FIRE LOOP RUNNING - GBU";
+				// decide if GBU (1) or grouping/cluster (2) 
+				// _rnd = selectRandom [1,2]; // prod line 
+				_rnd = selectRandom [2]; // debug line for testing exitWith in spread 
 
-					// GBU  
-					_dir = random 359;
-					_impact = _randPlayerPos getPos [60, _dir];
-					_safeZone = createMarker ["safeZone", _impact];
-					_safeZone setMarkerShape "ELLIPSE";
-					_safeZone setMarkerSize [40, 40];
-					_safeZone setMarkerAlpha 0.1;
-					sleep 2;
+				// GBU selected 
+				if (_rnd == 1) then {
+					// i dont want to lose any cycles being implemented due to presence of units
+					// need a way to re-run the iteration until I get a free space to explode ord 
+					// so use a local bool to manage any re-runs 
+					
+					_hasFired = false;
+					while {!_hasFired} do {
 
-					_unitsSafeZone = allUnits inAreaArray "safeZone";
-					// systemChat format ["_unitsSafeZone: %1", _unitsSafeZone];
-					_cnt = count _unitsSafeZone;
-					systemChat format ["_cnt: %1", _cnt];
+						// systemChat "DEBUG - FIRE LOOP RUNNING - GBU";
 
-					if (_cnt == 0) then {
-						// safe to deploy 
-						_exp = "Bo_GBU12_LGB" createVehicle _impact;
-						_hasFired = true;
-						deleteMarker "safeZone";
-					} else {
-						if (_cnt > 0) exitWith {
-							// systemChat "need to re-run GBU calcs";
+						// GBU  
+						_dir = random 359;
+						_impact = _randPlayerPos getPos [60, _dir];
+						_safeZone = createMarker ["safeZone", _impact];
+						_safeZone setMarkerShape "ELLIPSE";
+						_safeZone setMarkerSize [40, 40];
+						_safeZone setMarkerAlpha 0.1;
+						sleep 2;
+
+						_unitsSafeZone = allUnits inAreaArray "safeZone";
+						// systemChat format ["_unitsSafeZone: %1", _unitsSafeZone];
+						_cnt = count _unitsSafeZone;
+						systemChat format ["_cnt: %1", _cnt];
+
+						if (_cnt == 0) then {
+							// safe to deploy 
+							_exp = "Bo_GBU12_LGB" createVehicle _impact;
+							_hasFired = true;
 							deleteMarker "safeZone";
-							sleep 5; // this is the re-run delay 
+						} else {
+							if (_cnt > 0) exitWith {
+								// systemChat "need to re-run GBU calcs";
+								deleteMarker "safeZone";
+								sleep 5; // this is the re-run delay 
+							};
+						};
+					};
+
+				} else {
+					// i dont want to lose any cycles being implemented due to presence of units
+					// need a way to re-run the iteration until I get a free space to explode ord 
+					// so use a local bool to manage any re-runs 
+
+					_hasFired = false;
+					while {!_hasFired} do {
+
+						// systemChat "DEBUG - FIRE LOOP RUNNING - SPREAD";
+
+						// Grouping 
+						_dist = selectRandom [180,250];
+						_dir = random 359;
+						_impact = _randPlayerPos getPos [_dist, _dir];
+
+						_safeZone = createMarker ["safeZone", _impact];
+						_safeZone setMarkerShape "ELLIPSE";
+						_safeZone setMarkerSize [100, 100];
+						_safeZone setMarkerAlpha 0.1;
+						sleep 2;
+
+						_unitsSafeZone = allUnits inAreaArray "safeZone";
+						// systemChat format ["_unitsSafeZone: %1", _unitsSafeZone];
+						_cnt = count _unitsSafeZone;
+						// systemChat format ["_cnt: %1", _cnt];
+
+						if (_cnt == 0) then {
+							// safe to deploy 
+							// systemChat "DEBUG - FIRE IN EFFECT";
+							_hits = selectRandom [3,4,5,6,7,8];
+							_ord = selectRandom _boom;
+							// systemChat format ["_ord: %1", _ord];
+							_space = selectRandom [1,2,3,4];
+							for "_i" from 1 to _hits do {
+								_dir = random 359;
+								_dist = selectRandom [0,10,20,40,50,60,70];
+								_impact = _impact getPos [_dist,_dir];
+								_exp = _ord createVehicle _impact;
+								_extraRan = selectRandom [0.2,0.5,0.8];
+								_wait = _space + _extraRan;
+								sleep _wait; 
+							};
+							_hasFired = true;
+						} else {
+							if (_cnt > 0) exitWith {
+								// systemChat "re-running spread calcs";
+								deleteMarker "safeZone";
+								sleep 5; // this is the re-run delay 
+							};
 						};
 					};
 				};
 
+				deleteMarker "safeZone";
+
 			} else {
-				// i dont want to lose any cycles being implemented due to presence of units
-				// need a way to re-run the iteration until I get a free space to explode ord 
-				// so use a local bool to manage any re-runs 
-
-				_hasFired = false;
-				while {!_hasFired} do {
-
-					// systemChat "DEBUG - FIRE LOOP RUNNING - SPREAD";
-
-					// Grouping 
-					_dist = selectRandom [100,120,140,180,250];
-					_dir = random 359;
-					_impact = _randPlayerPos getPos [_dist, _dir];
-
-					_safeZone = createMarker ["safeZone", _impact];
-					_safeZone setMarkerShape "ELLIPSE";
-					_safeZone setMarkerSize [70, 70];
-					_safeZone setMarkerAlpha 0.1;
-					sleep 2;
-
-					_unitsSafeZone = allUnits inAreaArray "safeZone";
-					// systemChat format ["_unitsSafeZone: %1", _unitsSafeZone];
-					_cnt = count _unitsSafeZone;
-					// systemChat format ["_cnt: %1", _cnt];
-
-					if (_cnt == 0) then {
-						// safe to deploy 
-						// systemChat "DEBUG - FIRE IN EFFECT";
-						_hits = selectRandom [3,4,5,6,7,8];
-						_ord = selectRandom _boom;
-						// systemChat format ["_ord: %1", _ord];
-						_space = selectRandom [1,2,3,4];
-						for "_i" from 1 to _hits do {
-							_dir = random 359;
-							_dist = selectRandom [0,10,20,40,50,60,70];
-							_impact = _impact getPos [_dist,_dir];
-							_exp = _ord createVehicle _impact;
-							_extraRan = selectRandom [0.2,0.5,0.8];
-							_wait = _space + _extraRan;
-							sleep _wait; 
-						};
-						_hasFired = true;
-					} else {
-						if (_cnt > 0) exitWith {
-							// systemChat "re-running spread calcs";
-							deleteMarker "safeZone";
-							sleep 5; // this is the re-run delay 
-						};
-					};
- 				};
+				systemChat "random player selected is NOT in redzone";
 			};
 
-			deleteMarker "safeZone";
-
-		} else {
-			systemChat "random player selected is NOT in redzone";
 		};
 
 		sleep 10; // space between each attack  
