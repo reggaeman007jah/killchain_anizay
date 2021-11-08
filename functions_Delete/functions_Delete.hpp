@@ -17,6 +17,10 @@ class RGGd {
 			Description = "This function will delete civvie objects and markers after 25 minutes of creation";
 		};
 
+		class delete_marker {
+			Description = "This function will delete given marker after given time - used when marker created was Called via unscheduled env";
+		};
+
 		class delete_quickVics {
 			Description = "This function will delete vics when no players are nearby";
 		};
