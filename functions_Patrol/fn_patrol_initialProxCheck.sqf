@@ -25,31 +25,20 @@ i.e. this watches for players near to LZ Zeus
 _objPos = _this select 0; // objective point for any new mission 
 
 _lzPos = getMarkerPos 'LZ_Zeus';
-_data = [];
-{
-	if ((side _x) == WEST) then { _data pushback _x }
-} forEach allPlayers;
 
-_isNear = false; 
 _checkCycle = true;
 while {_checkCycle} do {	
 	{
 		_playerPos = getPos _x;
-		_actChk = _lzPos distance _playerPos;
-		if (_actChk < 150) then {
-			_isNear = true;
+		_chk = _lzPos distance _playerPos;
+		if (_chk < 150) then {
+			["BLUFOR IS NOW AT LZ ZEUS"] remoteExec ["RGGi_fnc_information_lowerRight", 0];  
+			[] spawn RGGt_fnc_test_nearEntities;
+			[] spawn RGGt_fnc_test_checkDestroy;
+			[_lzPos, _objPos] spawn RGGp_fnc_patrol_mainCycle;
+			_checkCycle = false;
 		};
-	} forEach _data;
-
-	if (_isNear) then {
-		["BLUFOR IS NOW AT LZ ZEUS"] remoteExec ["RGGi_fnc_information_lowerRight", 0];  
-	
-		[] spawn RGGt_fnc_test_nearEntities;
-		[] spawn RGGt_fnc_test_checkDestroy;
-
-		[_lzPos, _objPos] spawn RGGp_fnc_patrol_mainCycle;
-		_checkCycle = false;
-	};
+	} forEach allPlayers;
 
 	sleep 10;
 };
