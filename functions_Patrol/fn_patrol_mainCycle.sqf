@@ -652,7 +652,7 @@ if (!BLUMAN) then {
 		_dataStore = [];
 		{
 			_unitPos = getPos _x;
-			_dist = _anchorPos distance _unitrPos;
+			_dist = _anchorPos distance _unitPos;
 			if (_dist < 50) then {
 				_dataStore pushback _x;
 			};

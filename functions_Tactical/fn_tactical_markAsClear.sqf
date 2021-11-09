@@ -15,6 +15,8 @@ I have also added distance validation, so if used 20+m away from a building, not
 
 */
 
+// systemChat "DEBUG - Clearance Marker Init";
+
 _anchor = getPos player;
 _data = nearestObjects [_anchor, ["house"], 20];
 
@@ -23,14 +25,14 @@ if (_chk > 0) then {
 	_pos = _data select 1;
 	_posStr = str _pos;
 	deleteMarker _posStr;
-	_mkr = createMarker [_posStr, _anchor];
-	_mkr setMarkerType "hd_objective";
-	_mkr setMarkerColor "ColorGreen";
-	_mkr setMarkerSize [0.3,0.3];
-	systemChat "DEBUG - Clearance Marker Created";
-	[120, _mkr] spawn RGGd_fnc_delete_marker;
+	_posStr = createMarker [_posStr, _anchor];
+	_posStr setMarkerType "hd_objective";
+	_posStr setMarkerColor "ColorGreen";
+	_posStr setMarkerSize [0.5,0.5];
+	// systemChat "DEBUG - Clearance Marker Created";
+	[120, _posStr] spawn RGGd_fnc_delete_marker;
 } else {
-	systemChat "DEBUG - No Clearance Marker Created - You are not near a building";
+	// systemChat "DEBUG - No Clearance Marker Created - You are not near a building";
 };
 
 
