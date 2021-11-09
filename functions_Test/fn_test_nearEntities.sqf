@@ -2,7 +2,7 @@
 
 sleep 30; // enable startup ok 
 
-while {KILLCHAINISLIVE} do {
+while { KILLCHAINISLIVE } do {
 	
 	// count vehicle entities in redzone 
 	// has to be triggered once after redzone exists 

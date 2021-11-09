@@ -83,16 +83,14 @@ sleep 10; // to allow time for camp to be built
 
 // --- attack stage --- // 
 RFCHECK = true; 
-systemChat "DEBUG / MISSION CYCLE - RFCHECK starting now";
-
 while {RFCHECK} do {
-
-	// cycle debug 
-	systemChat "DEBUG / MISSION CYCLE - Cycle - RFCHECK";
 
 	// flybys 
 	// [_objPos] execVM "killchain\systems\ambientSystems\randomFlybys.sqf";
-	execVM "killchain\systems\ambientSystems\flares.sqf";
+
+	// removing as no indifor players also we have NV now 
+	// execVM "killchain\systems\ambientSystems\flares.sqf";
+
 	[_objPos] execVM "killchain\systems\ambientSystems\mortars.sqf";
 
 	// total numbers 
@@ -154,7 +152,7 @@ while {RFCHECK} do {
 
 	// check if won point and if so, move to defend 
 	if ((_coreOpfor <= 2) && (_coreIndi >=3)) then {
-		systemChat "LOGIC - POINT IS WON - indifor in core is 3+ and opfor is 3-";
+		systemChat "LOGIC - POINT IS WON - indifor in core is 3+ and opfor is 2-";
 		// move indi units to a rough defensive position around the center point - note will also attrack any opfor strags 
 		{
 			_dir = random 360;
@@ -166,7 +164,6 @@ while {RFCHECK} do {
 		} forEach _unitsCore;
 		RFCHECK = false;
 	} else {
-		
 		if (!BLUMAN) then {
 			systemChat "LOGIC - initiate indifor insurance move order";
 			[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
@@ -338,19 +335,17 @@ if (patrolPointsTaken > 2) then {
 // deleteMarker "Point 1"; // untested
 
 // defend point stage -------------------------------------------------------------------------------
-_cycles = 0;
-
 systemChat "RFCHECK2 starting";
 
+_cycles = 0;
 RFCHECK2 = true; 
-
 while {RFCHECK2} do {
 
 	// --- ambient flybys --- // 
 	// [_objPos] execVM "killchain\systems\ambientSystems\randomFlybys.sqf";
 
 	// --- ambient flares --- //
-	execVM "killchain\systems\ambientSystems\flares.sqf";
+	// execVM "killchain\systems\ambientSystems\flares.sqf";
 
 	// --- ambient mortars --- //
 	[_objPos] execVM "killchain\systems\ambientSystems\mortars.sqf";
@@ -427,7 +422,7 @@ while {RFCHECK2} do {
 		// OPFOR to push forward as a group if they took back control of point and there is no indifor on it 
 		if ((_coreIndi < 1) && (_redzoneOpfor > 25) && (_coreOpfor > 20)) then {
 			// hint "THEY ARE RUSHING! PREPARE YOUR DEFENSES!!";
-			"ENEMY FORCES HAVE WON BACK THE PATROL POINT AND ARE NOW ADVANCING ONTO THE PREVIOUS POINT- YOU NEED TO STOP THEM NOW!" remoteExec ["hint", 0, true];	
+			"ENEMY FORCES HAVE WON BACK THE PATROL POINT AND ARE NOW ADVANCING ONTO THE PREVIOUS POINT - YOU NEED TO STOP THEM NOW!" remoteExec ["hint", 0, true];	
 			{
 				_randomDir = selectRandom [270, 310, 00, 50, 90];
 				_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -449,12 +444,14 @@ while {RFCHECK2} do {
 	};
 
 	// --- insurance move order while in attack mode --- //
-	systemChat "LOGIC - initiate indifor insurance move order";
 	if (!BLUMAN) then {
+		systemChat "LOGIC - initiate indifor insurance move order";
 		[_objPos] spawn RGGo_fnc_order_insuranceMoveIndifor;
 	};
+	
 	systemChat "LOGIC - initiate opfor insurance move order";
 	[_objPos] spawn RGGo_fnc_order_insuranceMoveOpfor;
+
 	sleep 60;
 };
 
@@ -475,14 +472,13 @@ if (!BESILENT) then {
 
 
 
-
-
-// BASE REWARDS HERE :)
+// --- BASE REWARDS HERE :) --- //
 
 // create medic tent 
 _buildLocation = _objPos findEmptyPosition [10,100,"B_Heli_Light_01_dynamicLoadout_F"]; 
 _flrObj = "F_20mm_Red" createvehicle _buildLocation;
 sleep 5;
+
 // _baseBuilding1 = createVehicle ["Land_vn_tent_mash_02_04", _buildLocation, [], 30, "none"]; 
 // marker for tent 
 // _objective1 = createMarker ["_buildLocation", _buildLocation];
@@ -593,53 +589,99 @@ end of spawn removal
 // 	RGG_respawnStore deleteAt 0;
 // };
 
-// NEW - adding checker for players 
-"You have two minutes to get 50m of the Patrol Point in order to hold progression..." remoteExec ["systemChat", 0, true];
-["REGROUP AT THE CP"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
-sleep 120;
+// // blanket move order here if no tinman 
+if (!BLUMAN) then {
 
-// PROXIMITY REGROUP SYSTEM 
-_pos1 = createMarker ["REGROUP", _objPos];
-_pos1 setMarkerShape "ELLIPSE";
-_pos1 setMarkerAlpha 0.3;
-_pos1 setMarkerSize [100, 100];
+	"You have two minutes to get 50m of the Patrol Point in order to hold progression..." remoteExec ["systemChat", 0, true];
+	["REGROUP AT THE CP - 2 MIKES"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+	sleep 120;
 
-_activateCheck = true;
-_anchorPos = getMarkerPos 'REGROUP';
+	// PROXIMITY REGROUP SYSTEM 
+	_pos1 = createMarker ["REGROUP", _objPos];
+	_pos1 setMarkerShape "ELLIPSE";
+	_pos1 setMarkerAlpha 0.3;
+	_pos1 setMarkerSize [100, 100];
 
-"progression / hold activated" remoteExec ["systemChat", 0, true];
-while {_activateCheck} do {
-	sleep 10; // cycle frequency
-	_dataStore = [];
-	{
-		_playerPos = getPos _x;
-		_dist = _anchorPos distance _playerPos;
+	_activateCheck = true;
+	_anchorPos = getMarkerPos 'REGROUP';
 
-		if (_dist < 100) then {
-			_dataStore pushback _x;
+	// "progression / hold activated" remoteExec ["systemChat", 0, true];
+	while {_activateCheck} do {
+		sleep 10; // cycle frequency
+		_dataStore = [];
+		{
+			_playerPos = getPos _x;
+			_dist = _anchorPos distance _playerPos;
+
+			if (_dist < 100) then {
+				_dataStore pushback _x;
+			};
+		} forEach allPlayers;
+
+		_cnt = count _dataStore;
+
+		format ["Players near CP: %1", _cnt] remoteExec ["systemChat", 0];
+
+		if (_cnt == 0) then {
+			deleteMarker "REGROUP";
+			_activateCheck = false;
+			// "progression / hold completed" remoteExec ["systemChat", 0, true];
+			["PATROL IS MOVING"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+			execVM "media\sounds\patrolMoving.sqf";	
+			// format ["Debug - NOTE: _cnt == 0", _cnt] remoteExec ["systemChat", 0];
 		};
-	} forEach allPlayers;
-	_cnt = count _dataStore;
-	format ["Players near basecamp: %1", _cnt] remoteExec ["systemChat", 0];
-	if (_cnt == 0) then {
-		deleteMarker "REGROUP";
-		_activateCheck = false;
-		// "progression / hold completed" remoteExec ["systemChat", 0, true];
-		["PATROL IS MOVING"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
-		execVM "media\sounds\patrolMoving.sqf";	
-		// format ["Debug - NOTE: _cnt == 0", _cnt] remoteExec ["systemChat", 0];
 	};
+} else {
+
+	// "You have two minutes to get 50m of the Patrol Point in order to hold progression..." remoteExec ["systemChat", 0, true];
+	["PESH READY TO MOVE OUT"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+	sleep 120;
+
+	// PROXIMITY REGROUP SYSTEM 
+	_pos1 = createMarker ["REGROUP", _objPos];
+	_pos1 setMarkerShape "ELLIPSE";
+	_pos1 setMarkerAlpha 0.3;
+	_pos1 setMarkerSize [100, 100];
+
+	_activateCheck = true;
+	_anchorPos = getMarkerPos 'REGROUP';
+
+	// "progression / hold activated" remoteExec ["systemChat", 0, true];
+	while {_activateCheck} do {
+		sleep 10; // cycle frequency
+		_dataStore = [];
+		{
+			_unitPos = getPos _x;
+			_dist = _anchorPos distance _unitrPos;
+			if (_dist < 50) then {
+				_dataStore pushback _x;
+			};
+		} forEach allUnits;
+
+		_cnt = count _dataStore;
+
+		format ["Units near CP: %1", _cnt] remoteExec ["systemChat", 0];
+
+		if (_cnt == 0) then {
+			deleteMarker "REGROUP";
+			_activateCheck = false;
+			// "progression / hold completed" remoteExec ["systemChat", 0, true];
+			["PATROL IS MOVING"] remoteExec ["RGGi_fnc_information_lowerRight", 0]; 
+			execVM "media\sounds\patrolMoving.sqf";	
+			// format ["Debug - NOTE: _cnt == 0", _cnt] remoteExec ["systemChat", 0];
+		};
+	};
+
 };
 
 
+// --- NOW, PROGRESS PATROL --- //
 
-// NOW, PROGRESS PATROL 
-
-// resume here ...
 patrolPointsTaken = patrolPointsTaken +1;
 
 // set up next obj 
 _anchor = _objPos; // switcheroo 
+
 // private ["_mainAnchor"]; // may not need this..?
 
 // this switch repurposes the _objPos value with the next obj position 
@@ -673,22 +715,24 @@ switch (patrolPointsTaken) do {
 	};
 };
 
-// blanket move order here 
-_units = allUnits inAreaArray "redzone";
-_indi = [];
-{
-	if ((side _x) == INDEPENDENT) then {_indi pushBack _x}
-} forEach _units;
+// blanket move order here if no tinman 
+if (!BLUMAN) then {
+	_units = allUnits inAreaArray "redzone";
+	_indi = [];
+	{
+		if ((side _x) == INDEPENDENT) then {_indi pushBack _x}
+	} forEach _units;
+	// add check for all indifor units - are they in turret? if so, leave turret 
+	{
+		_randomDir = selectRandom [270, 310, 00, 50, 90];
+		_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
+		_endPoint1 = _objPos getPos [_randomDist,_randomDir];
+		sleep 1;
+		_x setBehaviour "COMBAT";
+		_x doMove _endPoint1;
+	} forEach _indi;
+};
 
-// add check for all indifor units - are they in turret? if so, leave turret 
-{
-	_randomDir = selectRandom [270, 310, 00, 50, 90];
-	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
-	_endPoint1 = _objPos getPos [_randomDist,_randomDir];
-	sleep 1;
-	_x setBehaviour "COMBAT";
-	_x doMove _endPoint1;
-} forEach _indi;
 
 // _onStatics = allUnits select {
 // 	side _x == independent && vehicle _x isKindOf "StaticWeapon";
@@ -705,15 +749,6 @@ allunits select {side _x == resistance && vehicle _x isKindOf "StaticWeapon" }
 */
 
 
-// {
-// 	_randomDir = selectRandom [270, 310, 00, 50, 90];
-// 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
-// 	_endPoint1 = _objPos getPos [_randomDist,_randomDir];
-// 	sleep 1;
-// 	_x setBehaviour "COMBAT";
-// 	_x doMove _endPoint1;
-// } forEach _indi;
-
 // catchall opfor move at end of cycle - might lead to pincer attacks unexpectedly ;)
 _opfor = [];
 {
@@ -728,6 +763,9 @@ _opfor = [];
 	_x setBehaviour "COMBAT";
 	_x doMove _endPoint1;
 } forEach _opfor;
+// hmm .. would this ^^ work as intended?
+// 
+
 
 // cleanup
 { deleteVehicle _x } forEach allDead;
@@ -740,9 +778,3 @@ if (patrolPointsTaken <= 6) then {
 } else {
 	[_anchor, _objPos] execVM "killChain\mission\patrolFinal.sqf";	
 };
-
-
-
-
-
-
