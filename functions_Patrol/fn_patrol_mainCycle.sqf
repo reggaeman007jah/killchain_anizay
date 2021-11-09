@@ -1,5 +1,10 @@
 // --- Main Mission Cycle --- //
 
+/*
+This function houses all of the mission phase operations - i.e. this is the framework function that informs all other activities
+
+*/
+
 _initStartPos = _this select 0; // starting point for any new mission
 _objPos = _this select 1; // objective point for any new mission 
 systemChat format ["debug - Patrol Points Taken: %1", patrolPointsTaken];
