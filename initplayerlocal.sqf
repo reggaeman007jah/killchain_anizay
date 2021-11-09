@@ -179,3 +179,5 @@ trigger a role briefing system using cutRSC for each player
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_saveInventory;
 	titletext ["LOADOUT SAVED", "PLAIN DOWN"];
 }] call bis_fnc_addScriptedEventhandler;
+
+
