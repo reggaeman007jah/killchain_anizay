@@ -22,23 +22,39 @@ i.e. this watches for players near to LZ Zeus
 // ID player on a loop, and progress when landed  
 // _initStartPos = _this select 0; // starting point for any new mission
 
-_objPos = _this select 0; // objective point for any new mission 
+params ["_objPos"]; // objective point for any new mission
 
 _lzPos = getMarkerPos 'LZ_Zeus';
 
+/*
+Note, this needs a breakOut solution, cycling through all players is not efficient, but also probably not a big deal either 
+*/
+
+_data = [];
+{
+	if ((side _x) == WEST) then { _data pushback _x }
+} forEach allPlayers;
+
+_isNear = false; 
 _checkCycle = true;
 while {_checkCycle} do {	
 	{
 		_playerPos = getPos _x;
-		_chk = _lzPos distance _playerPos;
-		if (_chk < 150) then {
-			["BLUFOR IS NOW AT LZ ZEUS"] remoteExec ["RGGi_fnc_information_lowerRight", 0];  
-			[] spawn RGGt_fnc_test_nearEntities;
-			[] spawn RGGt_fnc_test_checkDestroy;
-			[_lzPos, _objPos] spawn RGGp_fnc_patrol_mainCycle;
-			_checkCycle = false;
+		_actChk = _lzPos distance _playerPos;
+		if (_actChk < 150) then {
+			_isNear = true;
 		};
-	} forEach allPlayers;
+	} forEach _data;
+
+	if (_isNear) then {
+		["BLUFOR IS NOW AT LZ ZEUS"] remoteExec ["RGGi_fnc_information_lowerRight", 0];  
+
+		[] spawn RGGt_fnc_test_nearEntities;
+		[] spawn RGGt_fnc_test_checkDestroy;
+
+		[_lzPos, _objPos] spawn RGGp_fnc_patrol_mainCycle;
+		_checkCycle = false;
+	};
 
 	sleep 10;
-};
+}; 
