@@ -2,6 +2,9 @@
 this function takes a group and a target and sends hunter to target until hunter is dead 
 if target is dead will transition to a roaming function (random moves within AO)
 will only chase target if mission is live and if target is in AO 
+
+Action November 2021 - check how this is currently used 
+
 */
 
 // _hunterGroup = _this select 0;

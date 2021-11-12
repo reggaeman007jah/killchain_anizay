@@ -1,5 +1,5 @@
 /*
-Will move given group to given 8-grid:
+Will move given group to given 10-grid:
 */
 
 params ["_grp", "_grids"];
@@ -154,10 +154,10 @@ systemChat format ["Group: %1 is moving to grid: %2", _group, _movePos];
 // systemChat format ["Group: %1 is moving to grid: %2", _group, _movePos];
 
 
-deleteMarker "test";
-_mkr = createMarker ["test", _movePos];
-_mkr setMarkerType "warning";
-_mkr setMarkerColor "green";
+// deleteMarker "test";
+// _mkr = createMarker ["test", _movePos];
+// _mkr setMarkerType "warning";
+// _mkr setMarkerColor "green";
 
 
 

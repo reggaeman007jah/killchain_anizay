@@ -1,4 +1,8 @@
-// one off order - stop moving 
+/*
+Tinman Basic
+One off order - all groups hold position 
+*/
+
 
 // FALLBACKREMAIN = false; // in case was running 
 // // systemChat "ARVN Units are holding position";
@@ -21,7 +25,7 @@
 // new 
 // one off move order - all indiRed hold position  
 
-"INDI Groups are holding position" remoteExec ["systemChat", -2];
+"All INDI Groups are holding position" remoteExec ["systemChat", -2];
 // {playSound "attack"} remoteExec ["call",-2];
 // {playSound "commandOut"} remoteExec ["call",0];
 // systemChat "played sound";

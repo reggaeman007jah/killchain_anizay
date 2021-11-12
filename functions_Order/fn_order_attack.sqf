@@ -16,6 +16,9 @@ _selection = allGroups select {side _x isEqualTo independent};
 	systemChat format ["DEBUG - MOVE ORDER / Group %1 moving to %2", _x, _movePos];
 } forEach _selection;
 
+// ok, so maybe here we could filter all groups by owner .. and use the above if server-owned, and re-do the remoteExec on the owner (if not server) again here ?
+
+
 
 
 

@@ -1,5 +1,5 @@
 /*
-Forces AI out of heli 
+Forces AI out of heli - used as a backup when things don't go to plan 
 */
 
 params ["_player"];

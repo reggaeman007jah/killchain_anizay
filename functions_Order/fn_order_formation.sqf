@@ -1,6 +1,8 @@
 /*
+Tinman Advanced 
 takes a group and formation reference 
 */
+
 
 // _grp = _this select 0;
 // _form = _this select 1;

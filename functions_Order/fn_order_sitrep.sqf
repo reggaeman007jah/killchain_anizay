@@ -1,6 +1,11 @@
+/*
+Tinman Basic 
+Simply confirms overall numbers of troops in redzone
 
+Action November 2021 - remove (and test ok) systemChat messages 
+Action November 2021 - complete UI display for group data 
+*/
 
-// get overall numbers of troops in redzone 
 _unitsRedzone = allUnits inAreaArray "redzone";
 	
 // Redzone stats 

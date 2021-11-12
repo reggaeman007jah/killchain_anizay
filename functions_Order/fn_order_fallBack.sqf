@@ -1,4 +1,7 @@
-// // one off order - move to player location 
+/*
+Tinman Basic 
+one off order - all groups move to player location 
+*/
 
 "INDI Groups are moving to Platoon Leader position" remoteExec ["systemChat", -2];
 // {playSound "attack"} remoteExec ["call",-2];

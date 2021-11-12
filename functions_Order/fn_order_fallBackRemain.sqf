@@ -1,6 +1,9 @@
-// loop order, fall back and follow player pos 
+/*
+Tinman Basic 
+loop order, fall back and follow player pos 
+*/
 
-// systemChat "ARVN Units are falling back to protect TINMAN";
+
 "PESH Units are falling back to protect TINMAN" remoteExec ["systemChat", -2, true];
 // {playSound "fallbackremain"} remoteExec ["call",-2];
 // _initStartPos = _this select 0; // origin point 
