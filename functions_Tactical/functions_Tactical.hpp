@@ -9,6 +9,10 @@ class RGGtac {
 			Description = "marks a building as cleared";
 		};
 
+		class tactical_showOrder {
+			Description = "returns players in front of calling player, sorted by distance, on key/voice command";
+		};
+
 		class tactical_throwBlue {
 			Description = "throws blue smoke on key/voice command";
 		};
