@@ -106,7 +106,7 @@ while {true} do {
 					_iteration = _iteration +1; 
 
 					// exit if limit reached 
-					if (_spawnedInjured == 5) exitWith { systemChat "DEBUG / INVESTIGATE 1 - spawn limit of 5 reached" };
+					if (_spawnedInjured == 7) exitWith { systemChat "DEBUG / INVESTIGATE 1 - spawn limit of 5 reached" };
 					
 					systemChat format ["DEBUG / POPULATE -  spawn iteration %1", _iteration];
 
