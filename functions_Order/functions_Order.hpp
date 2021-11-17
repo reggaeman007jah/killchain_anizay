@@ -64,6 +64,10 @@ class RGGo {
 		class order_sitrep {
 			Description = "This function will relay count of indifor in Redzone";
 		};
+
+		class order_supress {
+			Description = "This function will order a group to fire at a 10-g position";
+		};
 	};
 };
 

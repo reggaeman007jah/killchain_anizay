@@ -17,9 +17,6 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 0;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 0;
-		};
 		if (VAHCO2_distanceSelectBool) then {
 			VAHCO2_distanceSelect pushback 0;
 		};
@@ -39,9 +36,6 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 1;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 1;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 1;
 		};
@@ -50,9 +44,6 @@ if (VAHCO2_numericalInputbool) then {
 		};
 		if (VAHCO2_formationSelectBool) then {
 			VAHCO2_formationSelect pushback 1;
-		};
-		if (VAHCO2_supressTimeBool) then {
-			VAHCO2_supressTimeSelect pushback 1;
 		};
 		if (VAHCO2_confirmBool) then {
 			VAHCO2_confirm pushback 1;
@@ -73,9 +64,6 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 2;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 2;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 2;
 		};
@@ -84,9 +72,6 @@ if (VAHCO2_numericalInputbool) then {
 		};
 		if (VAHCO2_formationSelectBool) then {
 			VAHCO2_formationSelect pushback 2;
-		};
-		if (VAHCO2_supressTimeBool) then {
-			VAHCO2_supressTimeSelect pushback 2;
 		};
 		if (VAHCO2_confirmBool) then {
 			VAHCO2_confirm pushback 2;
@@ -107,17 +92,11 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 3;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 3;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 3;
 		};
 		if (VAHCO2_distanceSelectBool) then {
 			VAHCO2_distanceSelect pushback 3;
-		};
-		if (VAHCO2_supressTimeBool) then {
-			VAHCO2_supressTimeSelect pushback 3;
 		};
 		if (VAHCO2_formationSelectBool) then {
 			VAHCO2_formationSelect pushback 3;
@@ -138,17 +117,11 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 4;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 4;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 4;
 		};
 		if (VAHCO2_distanceSelectBool) then {
 			VAHCO2_distanceSelect pushback 4;
-		};
-		if (VAHCO2_supressTimeBool) then {
-			VAHCO2_supressTimeSelect pushback 4;
 		};
 		if (VAHCO2_formationSelectBool) then {
 			VAHCO2_formationSelect pushback 4;
@@ -157,9 +130,6 @@ if (VAHCO2_numericalInputbool) then {
 
 	rgg_vahco_kd5 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 76) then {	
 		systemChat 'VAHCO - 5';
-		if (VAHCO2_orderSelectBool) then {
-			VAHCO2_orderSelect pushback 5;
-		};
 		if (VAHCO2_groupSelectBool) then {
 			VAHCO2_groupSelect pushback 5;
 		};
@@ -169,17 +139,11 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 5;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 5;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 5;
 		};
 		if (VAHCO2_distanceSelectBool) then {
 			VAHCO2_distanceSelect pushback 5;
-		};
-		if (VAHCO2_supressTimeBool) then {
-			VAHCO2_supressTimeSelect pushback 5;
 		};
 		if (VAHCO2_formationSelectBool) then {
 			VAHCO2_formationSelect pushback 5;
@@ -197,17 +161,11 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 6;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 6;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 6;
 		};
 		if (VAHCO2_distanceSelectBool) then {
 			VAHCO2_distanceSelect pushback 6;
-		};
-		if (VAHCO2_supressTimeBool) then {
-			VAHCO2_supressTimeSelect pushback 6;
 		};
 		if (VAHCO2_formationSelectBool) then {
 			VAHCO2_formationSelect pushback 6;
@@ -224,9 +182,6 @@ if (VAHCO2_numericalInputbool) then {
 		};
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 7;
-		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 7;
 		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 7;
@@ -250,9 +205,6 @@ if (VAHCO2_numericalInputbool) then {
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 8;
 		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 8;
-		};
 		if (VAHCO2_directionSelectBool) then {
 			VAHCO2_directionSelect pushback 8;
 		};
@@ -268,9 +220,6 @@ if (VAHCO2_numericalInputbool) then {
 		systemChat 'VAHCO - 9';
 		if (VAHCO2_gridSelectBool) then {
 			VAHCO2_gridSelect pushback 9;
-		};
-		if (VAHCO2_supressGridBool) then {
-			VAHCO2_supressGridSelect pushback 9;
 		};
 		if (VAHCO2_distanceSelectBool) then {
 			VAHCO2_distanceSelect pushback 9;

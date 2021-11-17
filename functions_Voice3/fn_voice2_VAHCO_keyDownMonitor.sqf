@@ -57,8 +57,6 @@ while {VAHCO2_numericalInputbool} do {
 	_cntDistSelect = count VAHCO2_distanceSelect; // expect 1 
 	_cntFormationSelect = count VAHCO2_formationSelect; // expect 1
 	_cntMergeSelect = count VAHCO2_mergeSelect; // expect 2
-	_cntSupGridSelect = count VAHCO2_supressGridSelect; // extact 8 
-	_cntSupTimeSelect = count VAHCO2_supressTimeSelect; // expect 1
 
 	_cntConfirm = count VAHCO2_confirm; // expect 1 
 
@@ -115,18 +113,6 @@ while {VAHCO2_numericalInputbool} do {
 						_iteration = _iteration + 1;
 					};
 					// hang on - why not forEach the above ?? Maybe bc I was removing single unit groups? Dunno, but in fresh light this looks too complex for what it is trying to do 
-					VAHCO2_orderSelectBool = false;
-					VAHCO2_groupSelectBool = true;
-				};
-				case 5: { 
-					systemChat "Supress Order - Select Group:";
-					_iteration = 1;
-					for "_i" from 1 to _cnt do {
-						_grp = _allGroups select (_iteration - 1);
-						_size = count units _grp;
-						systemChat format ["%1 (size: %2 units)", _grp, _size];
-						_iteration = _iteration + 1;
-					};
 					VAHCO2_orderSelectBool = false;
 					VAHCO2_groupSelectBool = true;
 				};
@@ -194,11 +180,6 @@ while {VAHCO2_numericalInputbool} do {
 					VAHCO2_groupSelectBool = false;
 					VAHCO2_mergeSelectBool = true;
 				};
-				case 5: { 
-					systemChat "Now confirm 10-grid position to assault";
-					VAHCO2_groupSelectBool = false;
-					VAHCO2_supressGridBool = true;
-				};
 				default { systemChat "ERROR - switch order type" };
 			};
 		};
@@ -237,7 +218,6 @@ while {VAHCO2_numericalInputbool} do {
 			// VAHCO2_confirmBool = true;
 		};
 	};
-
 
 	if (VAHCO2_distanceSelectBool) then {
 		if (_cntDistSelect == 1) then {
@@ -282,34 +262,6 @@ while {VAHCO2_numericalInputbool} do {
 
 			systemChat "Now confirm (1) or cancel (2)";
 			VAHCO2_mergeSelectBool = false;
-			VAHCO2_confirmBool = true;
-		};
-	};
-
-
-	if (VAHCO2_supressGridBool) then {
-		if (_cntSupGridSelect == 10) then {
-			// here, you've chosen a 10-grid location to supress 
-			systemChat format ["Grid Entered: %1", VAHCO2_supressGridSelect];
-			systemChat "Now confirm duration of supression";
-			systemChat "1 - 10 seconds";
-			systemChat "2 - 20 seconds";
-			systemChat "3 - 30 seconds";
-			systemChat "4 - 40 seconds";
-			systemChat "5 - 50 seconds";
-			systemChat "6 - 60 seconds";
-			VAHCO2_supressGridBool = false;
-			VAHCO2_supressTimeBool = true;
-		};
-	};
-
-
-	if (VAHCO2_supressTimeBool) then {
-		if (_cntSupTimeSelect == 1) then {
-			// here, you've chosen a duration to supress - from 10 to 60 seconds  
-			systemChat "duration confirmed";
-			systemChat "Now confirm (1) or cancel (2)";
-			VAHCO2_supressTimeBool = false;
 			VAHCO2_confirmBool = true;
 		};
 	};
@@ -475,64 +427,11 @@ while {VAHCO2_numericalInputbool} do {
 
 							// test 
 							[_group, _groupTo] remoteExec ["RGGo_fnc_order_merge", _clientID];
+
+
 						};
 						case 2: {
 							systemchat "merge order cancelled"; 
-						};
-						default { systemChat "switch error - confirm order"; };
-					};
-					VAHCO2_confirmBool = false;
-					[] call RGGv2_fnc_voice2_VAHCO_clearKeyDowns; 
-				};
-				case 5: { // supress order 
-					// so here, you've confirmed or cancelled  
-					_res = VAHCO2_confirm select 0;
-					switch (_res) do {
-						case 1: {
-							systemChat "supress order confirmed"; 
-							_time = VAHCO2_supressTimeSelect select 0;
-							_group = _chosenGroup select 0;
-
-							_clientID = groupOwner _group;
-							systemChat format ["OWNER: -------------- %1", _clientID];
-
-							_supPos = [];
-							_lat = [];
-							_lon = [];
-							_lat pushBack (VAHCO2_supressGridSelect select 0);
-							_lat pushBack (VAHCO2_supressGridSelect select 1);
-							_lat pushBack (VAHCO2_supressGridSelect select 2);
-							_lat pushBack (VAHCO2_supressGridSelect select 3);
-							_lat pushBack (VAHCO2_supressGridSelect select 4);
-							_lon pushBack (VAHCO2_supressGridSelect select 5);
-							_lon pushBack (VAHCO2_supressGridSelect select 6);
-							_lon pushBack (VAHCO2_supressGridSelect select 7);
-							_lon pushBack (VAHCO2_supressGridSelect select 8);
-							_lon pushBack (VAHCO2_supressGridSelect select 9);
-							_supPos pushBack _lat;
-							_supPos pushBack _lon;
-
-							switch (_time) do {
-								case 1: { _time = 10 };
-								case 2: { _time = 20 };
-								case 3: { _time = 30 };
-								case 4: { _time = 40 };
-								case 5: { _time = 50 };
-								case 6: { _time = 60 };
-								default { systemChat "switch sup time error" };
-							};
-							// if (_clientID == 0) then {
-							// 	// [_chosenGroup, _movePos] call RGGo_fnc_order_moveTo;
-							// 	[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 0];
-							// } else {
-							// 	[_chosenGroup, _movePos] remoteExec ["RGGo_fnc_order_moveTo", 2];
-							// };
-
-							systemChat format ["group: %1 / pos: %2 / time: %3", _chosenGroup, _supPos, _time];
-							[_chosenGroup, _supPos, _time] remoteExec ["RGGo_fnc_order_supress", _clientID];
-						};
-						case 2: {
-							systemchat "supress order cancelled"; 
 						};
 						default { systemChat "switch error - confirm order"; };
 					};

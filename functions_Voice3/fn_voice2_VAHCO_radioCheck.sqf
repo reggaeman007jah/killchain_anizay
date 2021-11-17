@@ -13,7 +13,6 @@ systemChat '1 - Issue a Grid Move Order';
 systemChat '2 - Issue a Basic Move Order';
 systemChat '3 - Issue a Formation Order';
 systemChat '4 - Issue a Merge Order';
-systemChat '5 - Issue a Supression Order';
 
 /*
 Extract Request / - TBC'; // triggered by badly damaged AI

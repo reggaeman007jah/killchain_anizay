@@ -30,18 +30,8 @@ VAHCO2_formationSelect		= [];
 VAHCO2_mergeSelectBool		= false;
 VAHCO2_mergeSelect			= [];
 
-VAHCO2_supressGridBool		= false;
-VAHCO2_supressGridSelect	= [];
-
-VAHCO2_supressTimeBool		= false;
-VAHCO2_supressTimeSelect	= [];
-
-// --------------------------------------
-
 VAHCO2_confirmBool			= false;
 VAHCO2_confirm				= [];
-
-// --------------------------------------
 
 // key = "numpad 3"
 rgg_vahco2_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 81)) then {
